@@ -10,7 +10,7 @@ public enum EquipmentType {
    */
   HUNTER,
   /**
-   * TODO
+   * 法术
    */
   MANA,
   /**
@@ -21,4 +21,8 @@ public enum EquipmentType {
    * 移动
    */
   MOVE,
+  /**
+   * 辅助
+   */
+  ASSIST
 }

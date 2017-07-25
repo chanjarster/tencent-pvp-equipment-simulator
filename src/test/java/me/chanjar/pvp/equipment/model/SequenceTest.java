@@ -43,4 +43,20 @@ public class SequenceTest {
 
   }
 
+  @Test
+  public void testCalculateInsertResults3() throws Exception {
+
+    Sequence sequence1 = new Sequence(Arrays.asList("a1"));
+    Sequence sequence2 = new Sequence(Arrays.asList("b1", "b2", "b3"));
+
+    List<Sequence> sequences = sequence1.mergeInsert(sequence2);
+
+    assertEquals(sequences.size(), 4);
+    Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("a1", "b1", "b2", "b3")));
+    Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("b1", "a1", "b2", "b3")));
+    Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("b1", "b2", "a1", "b3")));
+    Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("b1", "b2", "b3", "a1")));
+
+  }
+
 }

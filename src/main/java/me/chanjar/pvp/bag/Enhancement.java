@@ -2,7 +2,12 @@ package me.chanjar.pvp.bag;
 
 import me.chanjar.pvp.equipment.model.Equipment;
 
+/**
+ * TODO Enhancement应该可以做加法、减法，同时被Bag、Equipment使用
+ */
 public class Enhancement implements Cloneable {
+
+
 
   /**
    * 被装备增强

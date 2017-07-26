@@ -124,6 +124,9 @@ public class EquipmentModel implements Equipment {
 
   @Override
   public void setDependsOn(List<String> dependsOn) {
+    if (CollectionUtils.isEmpty(dependsOn)) {
+      return;
+    }
     this.dependsOn = dependsOn;
   }
 

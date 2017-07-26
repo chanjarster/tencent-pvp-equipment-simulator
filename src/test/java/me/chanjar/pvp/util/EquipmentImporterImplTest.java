@@ -15,7 +15,7 @@ public class EquipmentImporterImplTest {
     EquipmentImporterImpl excelImporter = new EquipmentImporterImpl();
     excelImporter.setEquipmentRepository(new EquipmentRepositoryImpl());
     List<Equipment> equipmentList = excelImporter
-        .importXlsx(EquipmentImporterImplTest.class.getResourceAsStream("/equipment-list.xlsx"));
+        .load(EquipmentImporterImplTest.class.getResourceAsStream("/equipment-list.xlsx"));
 
     assertThat(equipmentList).hasSize(93);
 

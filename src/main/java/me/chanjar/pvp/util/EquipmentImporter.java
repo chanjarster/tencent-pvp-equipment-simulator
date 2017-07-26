@@ -13,6 +13,6 @@ public interface EquipmentImporter {
    * @param is
    * @return
    */
-  List<Equipment> importXlsx(InputStream is);
+  List<Equipment> load(InputStream is);
 
 }

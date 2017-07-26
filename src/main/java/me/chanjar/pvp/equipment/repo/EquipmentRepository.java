@@ -47,4 +47,10 @@ public interface EquipmentRepository {
    */
   List<Equipment> getByIds(Collection<String> ids);
 
+  /**
+   * 获得所有装备
+   *
+   * @return
+   */
+  List<Equipment> getAll();
 }

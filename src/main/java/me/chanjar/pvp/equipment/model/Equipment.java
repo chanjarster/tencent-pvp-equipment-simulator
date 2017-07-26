@@ -1,5 +1,7 @@
 package me.chanjar.pvp.equipment.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 /**
@@ -75,6 +77,7 @@ public interface Equipment {
    *
    * @return
    */
+  @JsonIgnore
   List<String> getDependsOnRecursively();
 
   /**
@@ -85,6 +88,7 @@ public interface Equipment {
    * @param maxPreInsertOffset another序列最多往前插几个偏移量
    * @return
    */
+  @JsonIgnore
   Permutation calculatePermutation(int maxPreInsertOffset);
 
   Attribute getAttribute();

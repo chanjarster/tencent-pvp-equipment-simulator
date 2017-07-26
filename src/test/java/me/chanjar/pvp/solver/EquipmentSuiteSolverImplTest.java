@@ -36,7 +36,7 @@ public class EquipmentSuiteSolverImplTest extends AbstractTestNGSpringContextTes
   public void initialize() {
 
     List<Equipment> equipmentList = equipmentImporter
-        .importXlsx(getClass().getResourceAsStream("/equipment-list.xlsx"));
+        .load(getClass().getResourceAsStream("/equipment-list.xlsx"));
     equipmentRepository.registerEquipments(equipmentList);
 
   }

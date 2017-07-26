@@ -15,7 +15,7 @@ public class PermutationTest {
     Permutation p1 = new Permutation(Collections.singletonList(new Sequence(Arrays.asList("a1"))));
     Permutation p2 = new Permutation(Collections.singletonList(new Sequence(Arrays.asList("b1"))));
 
-    Permutation p3 = p1.merge(p2);
+    Permutation p3 = p1.merge(p2, 2);
     assertThat(p3.getSequenceList()).hasSize(2);
     assertThat(p3.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "b1")));
     assertThat(p3.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "a1")));
@@ -28,7 +28,7 @@ public class PermutationTest {
     Permutation p1 = new Permutation(Collections.singletonList(new Sequence(Arrays.asList("a1", "a2"))));
     Permutation p2 = new Permutation(Collections.singletonList(new Sequence(Arrays.asList("b1", "b2"))));
 
-    Permutation p3 = p1.merge(p2);
+    Permutation p3 = p1.merge(p2, 3);
     assertThat(p3.getSequenceList()).hasSize(6);
     assertThat(p3.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "b2", "a1", "a2")));
     assertThat(p3.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "a1", "b2", "a2")));

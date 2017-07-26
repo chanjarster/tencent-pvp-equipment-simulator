@@ -11,7 +11,6 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EquipmentModelTest {
-
   private EquipmentRepository equipmentRepository = new EquipmentRepositoryImpl();
 
   /**
@@ -24,12 +23,25 @@ public class EquipmentModelTest {
 
     Equipment a = createEquipment("a", null);
 
-    Permutation permutation = a.getPermutation();
+    Permutation permutation = a.calculatePermutation(1);
 
     assertThat(permutation.getSequenceList()).hasSize(1);
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a")));
 
   }
+
+  @Test
+  public void testGetOccupancyDeltaList1() throws Exception {
+
+    Equipment a = createEquipment("a", null);
+
+    int[] occupancyDeltaList = a.getOccupancyDeltaList();
+
+    assertThat(occupancyDeltaList).hasSize(1);
+    assertThat(occupancyDeltaList).containsSequence(1);
+
+  }
+
 
   /**
    * nodes:
@@ -47,12 +59,27 @@ public class EquipmentModelTest {
     createEquipment("b", null);
     createEquipment("c", null);
 
-    Permutation permutation = a.getPermutation();
+    Permutation permutation = a.calculatePermutation(2);
 
     assertThat(permutation.getSequenceList()).hasSize(2);
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b", "c", "a")));
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("c", "b", "a")));
   }
+
+  @Test
+  public void testGetOccupancyDeltaList2() throws Exception {
+
+    Equipment a = createEquipment("a", new String[] { "b", "c" });
+    createEquipment("b", null);
+    createEquipment("c", null);
+
+    int[] occupancyDeltaList = a.getOccupancyDeltaList();
+
+    assertThat(occupancyDeltaList).hasSize(3);
+    assertThat(occupancyDeltaList).containsSequence(1, 1, -1);
+
+  }
+
 
   /**
    * nodes:
@@ -74,7 +101,7 @@ public class EquipmentModelTest {
     createEquipment("b2", new String[] { "b1" });
     createEquipment("b1", null);
 
-    Permutation permutation = x.getPermutation();
+    Permutation permutation = x.calculatePermutation(3);
 
     assertThat(permutation.getSequenceList()).hasSize(6);
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "b2", "a1", "a2", "x")));
@@ -83,6 +110,22 @@ public class EquipmentModelTest {
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "b1", "b2", "a2", "x")));
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "b1", "a2", "b2", "x")));
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "a2", "b1", "b2", "x")));
+
+  }
+
+  @Test
+  public void testGetOccupancyDeltaList3() throws Exception {
+
+    Equipment x = createEquipment("x", new String[] { "a2", "b2" });
+    createEquipment("a2", new String[] { "a1" });
+    createEquipment("a1", null);
+    createEquipment("b2", new String[] { "b1" });
+    createEquipment("b1", null);
+
+    int[] occupancyDeltaList = x.getOccupancyDeltaList();
+
+    assertThat(occupancyDeltaList).hasSize(5);
+    assertThat(occupancyDeltaList).containsSequence(1, 0, 1, 0, -1);
 
   }
 
@@ -107,7 +150,7 @@ public class EquipmentModelTest {
     createEquipment("c", new String[] { "f" });
     createEquipment("f", null);
 
-    Permutation permutation = x.getPermutation();
+    Permutation permutation = x.calculatePermutation(4);
 
     assertThat(permutation.getSequenceList()).hasSize(20);
 
@@ -131,6 +174,23 @@ public class EquipmentModelTest {
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,c,b,a", ','))));
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,b,c,a", ','))));
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,d,b,f,c,a", ','))));
+
+  }
+
+  @Test
+  public void testGetOccupancyDeltaList4() throws Exception {
+
+    Equipment x = createEquipment("a", new String[] { "b", "c" });
+    createEquipment("b", new String[] { "d", "e" });
+    createEquipment("d", null);
+    createEquipment("e", null);
+    createEquipment("c", new String[] { "f" });
+    createEquipment("f", null);
+
+    int[] occupancyDeltaList = x.getOccupancyDeltaList();
+
+    assertThat(occupancyDeltaList).hasSize(6);
+    assertThat(occupancyDeltaList).containsSequence(1, 1, -1, 1, 0, -1);
 
   }
 

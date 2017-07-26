@@ -32,6 +32,11 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
   }
 
   @Override
+  public void registerEquipments(Collection<Equipment> equipmentCollection) {
+    equipmentCollection.stream().forEach(e -> registerEquipment(e));
+  }
+
+  @Override
   public Equipment getById(String id) {
     return equipmentMap.get(id);
   }

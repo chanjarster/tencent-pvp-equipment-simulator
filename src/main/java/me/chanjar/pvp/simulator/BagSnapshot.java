@@ -1,6 +1,11 @@
-package me.chanjar.pvp.bag;
+package me.chanjar.pvp.simulator;
 
+import me.chanjar.pvp.bag.Bag;
+import me.chanjar.pvp.bag.BagAddResult;
+import me.chanjar.pvp.equipment.model.Attribute;
 import me.chanjar.pvp.equipment.model.Equipment;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +17,7 @@ public class BagSnapshot {
 
   private final List<Equipment> equipmentList;
 
-  private final Enhancement enhancement;
+  private final Attribute enhancement;
 
   private final int spentCoins;
 
@@ -20,7 +25,7 @@ public class BagSnapshot {
 
   public BagSnapshot(Bag bag, BagAddResult bagAddResult) {
     this.equipmentList = new ArrayList<>(bag.getCurrentEquipmentList());
-    this.enhancement = bag.getCurrentEnhancement().clone();
+    this.enhancement = bag.getEnhancement().clone();
     this.spentCoins = bag.getSpentCoins();
     this.bagAddResult = bagAddResult;
   }
@@ -29,7 +34,7 @@ public class BagSnapshot {
     return equipmentList;
   }
 
-  public Enhancement getEnhancement() {
+  public Attribute getEnhancement() {
     return enhancement;
   }
 
@@ -39,5 +44,15 @@ public class BagSnapshot {
 
   public BagAddResult getBagAddResult() {
     return bagAddResult;
+  }
+
+  @Override
+  public String toString() {
+    return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+        .append("equipmentList", equipmentList)
+        .append("enhancement", enhancement)
+        .append("spentCoins", spentCoins)
+        .append("bagAddResult", bagAddResult)
+        .toString();
   }
 }

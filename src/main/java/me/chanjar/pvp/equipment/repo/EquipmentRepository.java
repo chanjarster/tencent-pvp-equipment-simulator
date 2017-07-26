@@ -25,6 +25,13 @@ public interface EquipmentRepository {
   void registerEquipment(Equipment equipment);
 
   /**
+   * 批量注册装备
+   *
+   * @param equipmentCollection
+   */
+  void registerEquipments(Collection<Equipment> equipmentCollection);
+
+  /**
    * 根据ID获得装备
    *
    * @param id

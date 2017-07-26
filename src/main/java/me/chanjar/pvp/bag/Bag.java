@@ -1,5 +1,6 @@
 package me.chanjar.pvp.bag;
 
+import me.chanjar.pvp.equipment.model.Attribute;
 import me.chanjar.pvp.equipment.model.Equipment;
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -21,9 +22,9 @@ public class Bag {
   private final List<Equipment> currentEquipmentList;
 
   /**
-   * 当前增强值
+   * 属性增强
    */
-  private final Enhancement currentEnhancement = new Enhancement();
+  private Attribute enhancement = new Attribute();
 
   /**
    * 累计花费金币
@@ -31,10 +32,10 @@ public class Bag {
   private int spentCoins;
 
   /**
-   * 默认背包容量5
+   * 默认背包容量6
    */
   public Bag() {
-    this(5);
+    this(6);
   }
 
   public Bag(int capacity) {
@@ -43,52 +44,12 @@ public class Bag {
   }
 
   /**
-   * 判断这样的出装顺序是否可行，其实就是模拟的把装备按照顺序都添加一遍
-   *
-   * @param equipmentList
-   * @return
-   */
-  public boolean isFeasible(List<Equipment> equipmentList) {
-
-    for (Equipment equipment : equipmentList) {
-      BagAddResult result = add(equipment);
-      if (!BagAddResult.SUCCESS.equals(result)) {
-        return false;
-      }
-    }
-    reset();
-    return true;
-  }
-
-  /**
-   * 模拟添加装备，获得每次添加装备后的背包快照
-   *
-   * @param equipmentList
-   * @return 背包快照
-   */
-  public List<BagSnapshot> dryRun(List<Equipment> equipmentList) {
-
-    List<BagSnapshot> results = new ArrayList<>();
-
-    for (Equipment equipment : equipmentList) {
-      BagAddResult addResult = add(equipment);
-      if (!BagAddResult.SUCCESS.equals(addResult)) {
-        results.add(new BagSnapshot(this, addResult));
-        return results;
-      }
-      results.add(new BagSnapshot(this, addResult));
-    }
-
-    return results;
-  }
-
-  /**
-   * 添加装备
+   * 买入装备
    *
    * @param equipment
    * @return 如果容量满了，则不允许再放，返回false；如果容量没满，则添加成功，返回true
    */
-  protected BagAddResult add(Equipment equipment) {
+  public BagAddResult buy(Equipment equipment) {
 
     if (CollectionUtils.isEmpty(equipment.getDependsOn())) {
       // 背包容量不足
@@ -97,8 +58,8 @@ public class Bag {
       }
 
       currentEquipmentList.add(equipment);
-      currentEnhancement.enhanceBy(equipment);
-      spentCoins = equipment.getPrice();
+      enhanceBy(equipment.getAttribute());
+      spentCoins += equipment.getPrice();
       return BagAddResult.SUCCESS;
     }
 
@@ -126,13 +87,34 @@ public class Bag {
     ArrayList<Integer> sortIds = new ArrayList<>(dependsEquipmentIndices);
     Collections.sort(sortIds);
     Collections.reverse(sortIds);
-    sortIds.forEach(i -> currentEnhancement.remove(currentEquipmentList.remove(i.intValue())));
+    sortIds.forEach(i -> {
+      Equipment remove = currentEquipmentList.remove(i.intValue());
+      removeEnhance(remove.getAttribute());
+    });
 
     // 添加装备
-    currentEnhancement.enhanceBy(equipment);
+    enhanceBy(equipment.getAttribute());
     currentEquipmentList.add(equipment);
-    spentCoins = equipment.getPrice();
+    spentCoins += equipment.getPrice();
     return BagAddResult.SUCCESS;
+  }
+
+  /**
+   * 卖出装备
+   *
+   * @param equipmentId
+   */
+  public void sell(String equipmentId) {
+
+    int equipmentIndexOf = getEquipmentIndexOf(equipmentId, Collections.emptySet());
+    if (equipmentIndexOf == -1) {
+      return;
+    }
+
+    Equipment equipment = currentEquipmentList.remove(equipmentIndexOf);
+    spentCoins -= equipment.getSellPrice();
+    removeEnhance(equipment.getAttribute());
+
   }
 
   /**
@@ -162,12 +144,25 @@ public class Bag {
   }
 
   /**
-   * 获得当前增幅
+   * 被装备增强
    *
-   * @return
+   * @param another
    */
-  public Enhancement getCurrentEnhancement() {
-    return currentEnhancement;
+  public void enhanceBy(Attribute another) {
+
+    this.enhancement = enhancement.plus(another);
+
+  }
+
+  /**
+   * 消耗装备，原先的增强要被抵消
+   *
+   * @param another
+   */
+  public void removeEnhance(Attribute another) {
+
+    this.enhancement = enhancement.minus(another);
+
   }
 
   /**
@@ -188,12 +183,16 @@ public class Bag {
     return spentCoins;
   }
 
+  public Attribute getEnhancement() {
+    return enhancement;
+  }
+
   /**
    * 清空背包，恢复原始状态
    */
   public void reset() {
     currentEquipmentList.clear();
-    currentEnhancement.reset();
+    enhancement = new Attribute();
     spentCoins = 0;
   }
 }

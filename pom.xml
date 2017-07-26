@@ -4,7 +4,7 @@
 
   <parent>
     <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-parent</artifactId>
+    <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.5.4.RELEASE</version>
   </parent>
 
@@ -25,6 +25,7 @@
     <commons-collections4.version>4.1</commons-collections4.version>
     <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
 
+    <spreadsheet-mapper.version>1.0.6</spreadsheet-mapper.version>
   </properties>
 
   <!--
@@ -84,6 +85,7 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
     </dependency>
+
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
@@ -94,11 +96,28 @@
       <artifactId>commons-collections4</artifactId>
       <version>${commons-collections4.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.supwisdom</groupId>
+      <artifactId>spreadsheet-mapper-core</artifactId>
+      <version>${spreadsheet-mapper.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.supwisdom</groupId>
+      <artifactId>spreadsheet-mapper-java8</artifactId>
+      <version>${spreadsheet-mapper.version}</version>
+    </dependency>
+
     <!-- Test things -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
       <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>

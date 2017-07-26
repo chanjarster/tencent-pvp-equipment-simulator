@@ -17,7 +17,7 @@ public class ListInsertUtilsTest {
   public void testCalculateInsertResults() throws Exception {
 
     List<List<String>> listInsertionResults = ListInsertUtils
-        .mergeInsert(Arrays.asList("a1", "a2"), Arrays.asList("b1", "b2"), -1);
+        .mergeInsert(Arrays.asList("a1", "a2"), Arrays.asList("b1", "b2"), -1, 3);
 
     assertEquals(listInsertionResults.size(), 6);
     assertThat(listInsertionResults).contains(Arrays.asList("b1", "b2", "a1", "a2"));
@@ -33,7 +33,7 @@ public class ListInsertUtilsTest {
   public void testCalculateInsertResults2() throws Exception {
 
     List<List<String>> listInsertionResults = ListInsertUtils
-        .mergeInsert(Arrays.asList("a1", "a2"), Arrays.asList("a1", "a2"), -1);
+        .mergeInsert(Arrays.asList("a1", "a2"), Arrays.asList("a1", "a2"), -1, 3);
 
     assertEquals(listInsertionResults.size(), 2);
     assertThat(listInsertionResults).contains(Arrays.asList("a1", "a2", "a1", "a2"));

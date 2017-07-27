@@ -1,5 +1,6 @@
 package me.chanjar.pvp.bag;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import me.chanjar.pvp.bag.Bag;
 import me.chanjar.pvp.bag.BagAddResult;
 import me.chanjar.pvp.equipment.model.Attribute;
@@ -9,6 +10,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * 背包快照
@@ -30,8 +33,13 @@ public class BagSnapshot {
     this.bagAddResult = bagAddResult;
   }
 
+  @JsonIgnore
   public List<Equipment> getEquipmentList() {
     return equipmentList;
+  }
+
+  public List<String> getEquipmentIds() {
+    return equipmentList.stream().map(e -> e.getId()).collect(toList());
   }
 
   public Attribute getEnhancement() {

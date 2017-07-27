@@ -48,22 +48,25 @@ public class Attribute implements Cloneable {
 
     Attribute result = new Attribute();
     result.setAttack(attack + another.getAttack());
-    result.setAttack(defense + another.getDefense());
-    result.setAttack(hpRecoverPer5Secs + another.getHpRecoverPer5Secs());
-    result.setAttack(manaAttack + another.getManaAttack());
-    result.setAttack(manaDefense + another.getManaDefense());
-    result.setAttack(mpRecoverPer5Secs + another.getMpRecoverPer5Secs());
-    result.setAttack(maxMp + another.getMaxMp());
-    result.setAttack(maxHp + another.getMaxHp());
-    result.setAttack(speedPct + another.getSpeedPct());
-    result.setAttack(cdCutdownPct + another.getCdCutdownPct());
-    result.setAttack(attackSpeedPct + another.getAttackSpeedPct());
-    result.setAttack(bustProbabilityPct + another.getBustProbabilityPct());
-    result.setAttack(attackSuckBloodPct + another.getAttackSuckBloodPct());
+    result.setDefense(defense + another.getDefense());
+    result.setHpRecoverPer5Secs(hpRecoverPer5Secs + another.getHpRecoverPer5Secs());
+    result.setManaAttack(manaAttack + another.getManaAttack());
+    result.setManaDefense(manaDefense + another.getManaDefense());
+    result.setMpRecoverPer5Secs(mpRecoverPer5Secs + another.getMpRecoverPer5Secs());
+    result.setMaxMp(maxMp + another.getMaxMp());
+    result.setMaxHp(maxHp + another.getMaxHp());
+    result.setSpeedPct(speedPct + another.getSpeedPct());
+    result.setCdCutdownPct(cdCutdownPct + another.getCdCutdownPct());
+    result.setAttackSpeedPct(attackSpeedPct + another.getAttackSpeedPct());
+    result.setBustProbabilityPct(bustProbabilityPct + another.getBustProbabilityPct());
+    result.setAttackSuckBloodPct(attackSuckBloodPct + another.getAttackSuckBloodPct());
+
     result.getPassiveSkills().addAll(passiveSkills);
     result.getPassiveSkills().addAll(another.getPassiveSkills());
+
     result.getInitiativeSkills().addAll(initiativeSkills);
     result.getInitiativeSkills().addAll(another.getInitiativeSkills());
+    
     return result;
   }
 
@@ -77,18 +80,18 @@ public class Attribute implements Cloneable {
 
     Attribute result = new Attribute();
     result.setAttack(attack - another.getAttack());
-    result.setAttack(defense - another.getDefense());
-    result.setAttack(hpRecoverPer5Secs - another.getHpRecoverPer5Secs());
-    result.setAttack(manaAttack - another.getManaAttack());
-    result.setAttack(manaDefense - another.getManaDefense());
-    result.setAttack(mpRecoverPer5Secs - another.getMpRecoverPer5Secs());
-    result.setAttack(maxMp - another.getMaxMp());
-    result.setAttack(maxHp - another.getMaxHp());
-    result.setAttack(speedPct - another.getSpeedPct());
-    result.setAttack(cdCutdownPct - another.getCdCutdownPct());
-    result.setAttack(attackSpeedPct - another.getAttackSpeedPct());
-    result.setAttack(bustProbabilityPct - another.getBustProbabilityPct());
-    result.setAttack(attackSuckBloodPct - another.getAttackSuckBloodPct());
+    result.setDefense(defense - another.getDefense());
+    result.setHpRecoverPer5Secs(hpRecoverPer5Secs - another.getHpRecoverPer5Secs());
+    result.setManaAttack(manaAttack - another.getManaAttack());
+    result.setManaDefense(manaDefense - another.getManaDefense());
+    result.setMpRecoverPer5Secs(mpRecoverPer5Secs - another.getMpRecoverPer5Secs());
+    result.setMaxMp(maxMp - another.getMaxMp());
+    result.setMaxHp(maxHp - another.getMaxHp());
+    result.setSpeedPct(speedPct - another.getSpeedPct());
+    result.setCdCutdownPct(cdCutdownPct - another.getCdCutdownPct());
+    result.setAttackSpeedPct(attackSpeedPct - another.getAttackSpeedPct());
+    result.setBustProbabilityPct(bustProbabilityPct - another.getBustProbabilityPct());
+    result.setAttackSuckBloodPct(attackSuckBloodPct - another.getAttackSuckBloodPct());
 
     result.getPassiveSkills().addAll(passiveSkills);
     another.getPassiveSkills().forEach(s -> result.getPassiveSkills().remove(s));
@@ -344,8 +347,6 @@ public class Attribute implements Cloneable {
 
   @Override
   public Attribute clone() {
-    Attribute attribute = new Attribute();
-    attribute.plus(this);
-    return attribute;
+    return new Attribute().plus(this);
   }
 }

@@ -1,10 +1,13 @@
 package me.chanjar.pvp.bag;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import me.chanjar.pvp.equipment.model.Attribute;
 import me.chanjar.pvp.equipment.model.Equipment;
 import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.*;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * 背包
@@ -44,10 +47,23 @@ public class Bag {
   }
 
   /**
+   * 添加装备，不管容量、是否缺少下级装备
+   *
+   * @param equipment
+   */
+  public void add(Equipment equipment) {
+
+    enhanceBy(equipment.getAttribute());
+    spentCoins += equipment.getPrice();
+    currentEquipmentList.add(equipment);
+
+  }
+
+  /**
    * 买入装备
    *
    * @param equipment
-   * @return 如果容量满了，则不允许再放，返回false；如果容量没满，则添加成功，返回true
+   * @return 容量满了、缺少下级装备、成功
    */
   public BagAddResult buy(Equipment equipment) {
 
@@ -139,8 +155,13 @@ public class Bag {
    *
    * @return
    */
+  @JsonIgnore
   public List<Equipment> getCurrentEquipmentList() {
     return currentEquipmentList;
+  }
+
+  public List<String> getCurrentEquipmentIds() {
+    return currentEquipmentList.stream().map(e -> e.getId()).collect(toList());
   }
 
   /**
@@ -148,7 +169,7 @@ public class Bag {
    *
    * @param another
    */
-  public void enhanceBy(Attribute another) {
+  private void enhanceBy(Attribute another) {
 
     this.enhancement = enhancement.plus(another);
 
@@ -159,7 +180,7 @@ public class Bag {
    *
    * @param another
    */
-  public void removeEnhance(Attribute another) {
+  private void removeEnhance(Attribute another) {
 
     this.enhancement = enhancement.minus(another);
 

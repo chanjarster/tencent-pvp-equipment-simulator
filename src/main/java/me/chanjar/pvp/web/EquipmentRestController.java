@@ -1,5 +1,9 @@
 package me.chanjar.pvp.web;
 
+import me.chanjar.pvp.bag.Bag;
+import me.chanjar.pvp.bag.BagAddResult;
+import me.chanjar.pvp.bag.BagSimulator;
+import me.chanjar.pvp.bag.BagSnapshot;
 import me.chanjar.pvp.equipment.model.Equipment;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.solver.EquipmentSuiteSolver;
@@ -32,6 +36,8 @@ public class EquipmentRestController {
   private EquipmentSuiteSolver equipmentSuiteSolver;
 
   private EquipmentImporter equipmentImporter;
+
+  private BagSimulator bagSimulator;
 
   @RequestMapping(method = GET, path = "/all", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
   public List<Equipment> getAll() {
@@ -141,6 +147,38 @@ public class EquipmentRestController {
 
   }
 
+  /**
+   * 传入最终装备列表，获得最终效果
+   *
+   * @param equipmentIds
+   * @return
+   */
+  @RequestMapping(method = GET, path = "/final-effect")
+  public BagSnapshot getFinalEffect(@RequestParam("equipmentIds[]") List<String> equipmentIds) {
+
+    Bag bag = new Bag(equipmentIds.size());
+    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
+    equipmentList.stream().forEach(e -> bag.add(e));
+
+    return new BagSnapshot(bag, BagAddResult.SUCCESS);
+
+  }
+
+  /**
+   * 传入装备购买顺序，获得过程效果
+   *
+   * @param equipmentIds
+   * @return
+   */
+  @RequestMapping(method = GET, path = "/progress-effects")
+  public List<BagSnapshot> getProgressEffect(
+      @RequestParam("bagCapacity") int bagCapacity,
+      @RequestParam("equipmentIds[]") List<String> equipmentIds) {
+
+    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
+    return bagSimulator.simulate(new Bag(bagCapacity), equipmentList);
+  }
+
   @Autowired
   public void setEquipmentRepository(EquipmentRepository equipmentRepository) {
     this.equipmentRepository = equipmentRepository;
@@ -154,5 +192,10 @@ public class EquipmentRestController {
   @Autowired
   public void setEquipmentImporter(EquipmentImporter equipmentImporter) {
     this.equipmentImporter = equipmentImporter;
+  }
+
+  @Autowired
+  public void setBagSimulator(BagSimulator bagSimulator) {
+    this.bagSimulator = bagSimulator;
   }
 }

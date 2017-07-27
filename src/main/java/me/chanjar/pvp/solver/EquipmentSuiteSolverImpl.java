@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,19 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
   private EquipmentRepository equipmentRepository;
 
   private BagSimulator bagSimulator;
+
+  @Override
+  public BigInteger getPossibleSequenceAmount(List<Equipment> finalEquipmentList) {
+
+    Equipment aggregator = equipmentRepository.newModel();
+    aggregator.setId("_AGGREGATOR_");
+    for (Equipment finalEquipment : finalEquipmentList) {
+      aggregator.getDependsOn().add(finalEquipment.getId());
+    }
+
+    return aggregator.getPossibleSequenceAmount();
+  }
+
 
   @Override
   public List<List<Equipment>> getFeasibleFinalEquipmentSequences(int bagCapacity, List<Equipment> finalEquipmentList) {
@@ -47,7 +61,7 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
 
   @Override
   public List<List<Equipment>> getEquipmentPurchaseSequences(int bagCapacity, List<Equipment> finalEquipmentList,
-      int maxPreInsertOffset) {
+      int maxInsertPosAmount) {
 
     Equipment aggregator = equipmentRepository.newModel();
     aggregator.setId("_AGGREGATOR_");
@@ -55,7 +69,7 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
       aggregator.getDependsOn().add(finalEquipment.getId());
     }
 
-    Permutation solutionPermutation = aggregator.calculatePermutation(maxPreInsertOffset);
+    Permutation solutionPermutation = aggregator.calculatePermutation(maxInsertPosAmount);
 
     LOGGER.debug("Find {} possible ways", solutionPermutation.getSequenceList().size());
 

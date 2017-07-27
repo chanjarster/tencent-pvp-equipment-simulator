@@ -286,7 +286,7 @@ public class EquipmentModelTest {
       equipment.setDependsOn(Arrays.asList(dependsOn));
     }
 
-    equipmentRepository.registerEquipment(equipment);
+    equipmentRepository.register(equipment);
     return equipment;
   }
 

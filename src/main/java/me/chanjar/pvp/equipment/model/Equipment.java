@@ -91,7 +91,7 @@ public interface Equipment {
   int getDependsOnAmountRecursively();
 
   /**
-   * 大致计算所有装备购买顺序的数量（递归计算的）。比如：
+   * 大致计算所有装备购买顺序(含子装备)的数量（递归计算的）。比如：
    * <pre>
    *    a
    *   / \
@@ -99,7 +99,8 @@ public interface Equipment {
    * </pre>
    * 它的装备购买顺序有两种：[b, c, a], [c, b, a]，所以返回2。<br>
    * 计算结果不考虑重复情况，比如a依赖两个b，那么返回的结果依然是2<br>
-   *
+   * <br>
+   * 算法说明见源代码：doc/出装顺序数计算说明.png
    * @return
    */
   @JsonIgnore
@@ -110,11 +111,11 @@ public interface Equipment {
    * 获得包括自己节点在内的，所有子节点的树遍历结果，遍历结果是对pre-order的再编排。<br>
    * 简单来说就是：子节点必须在父节点之前，但是兄弟子节点的先后顺序可以不一样。<br>
    *
-   * @param maxPreInsertOffset another序列最多往前插几个偏移量
+   * @param maxInsertPosAmount 最多尝试几个插入点
    * @return
    */
   @JsonIgnore
-  Permutation calculatePermutation(int maxPreInsertOffset);
+  Permutation calculatePermutation(int maxInsertPosAmount);
 
   Attribute getAttribute();
 

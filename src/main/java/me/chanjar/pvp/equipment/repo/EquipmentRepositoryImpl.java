@@ -23,7 +23,7 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
   }
 
   @Override
-  public void registerEquipment(Equipment equipment) {
+  public void register(Equipment equipment) {
 
     if (StringUtils.isBlank(equipment.getId())) {
       throw new IllegalArgumentException("Equipment id is null");
@@ -35,7 +35,7 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
 
   @Override
   public void registerEquipments(Collection<Equipment> equipmentCollection) {
-    equipmentCollection.stream().forEach(e -> registerEquipment(e));
+    equipmentCollection.stream().forEach(e -> register(e));
   }
 
   @Override

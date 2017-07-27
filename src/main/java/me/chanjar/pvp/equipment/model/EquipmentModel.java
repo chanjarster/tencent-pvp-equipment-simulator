@@ -56,7 +56,7 @@ public class EquipmentModel implements Equipment {
   }
 
   @Override
-  public Permutation calculatePermutation(int maxPreInsertOffset) {
+  public Permutation calculatePermutation(int maxInsertPosAmount) {
 
     if (CollectionUtils.isEmpty(dependsOn)) {
 
@@ -69,14 +69,14 @@ public class EquipmentModel implements Equipment {
 
     List<Permutation> subPermutations = new ArrayList<>();
     for (String id : dependsOn) {
-      subPermutations.add(equipmentRepository.getById(id).calculatePermutation(maxPreInsertOffset));
+      subPermutations.add(equipmentRepository.getById(id).calculatePermutation(maxInsertPosAmount));
     }
 
     Permutation result = subPermutations.get(0);
 
     for (int j = 1; j < subPermutations.size(); j++) {
       Permutation sub2 = subPermutations.get(j);
-      result = result.merge(sub2, maxPreInsertOffset);
+      result = result.merge(sub2, maxInsertPosAmount);
 
     }
 

@@ -17,7 +17,6 @@ import me.chanjar.pvp.equipment.model.EquipmentType;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,7 +28,7 @@ import java.util.List;
 import java.util.function.Function;
 
 @Component
-public class EquipmentImporterImpl implements EquipmentImporter, InitializingBean {
+public class EquipmentImporterImpl implements EquipmentImporter {
 
   private EquipmentRepository equipmentRepository;
 
@@ -173,7 +172,6 @@ public class EquipmentImporterImpl implements EquipmentImporter, InitializingBea
 
   }
 
-
   private PropertySetter createIntPropertySetter(String field) {
 
     return new PropertySetterTemplate() {
@@ -238,10 +236,4 @@ public class EquipmentImporterImpl implements EquipmentImporter, InitializingBea
     this.equipmentRepository = equipmentRepository;
   }
 
-  @Override
-  public void afterPropertiesSet() throws Exception {
-    List<Equipment> equipmentList = load(getClass().getResourceAsStream("/equipment-list.xlsx"));
-    equipmentList.stream().forEach(e -> equipmentRepository.registerEquipment(e));
-
-  }
 }

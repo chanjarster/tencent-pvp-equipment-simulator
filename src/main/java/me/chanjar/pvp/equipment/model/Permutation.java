@@ -45,10 +45,10 @@ public class Permutation {
    * 看到没有，[a1, a2]始终保持前后顺序，只不过其前、后、中间插入了[b1, b2]，而[b1, b2]也始终保持前后顺序<br>
    *
    * @param another
-   * @param maxPreInsertOffset another序列最多往前插几个偏移量
+   * @param maxInsertPosAmount 最多尝试几个插入点
    * @return 新的
    */
-  public Permutation merge(Permutation another, int maxPreInsertOffset) {
+  public Permutation merge(Permutation another, int maxInsertPosAmount) {
 
     List<Sequence> result = new LinkedList<>();
 
@@ -61,7 +61,7 @@ public class Permutation {
 
       for (Sequence sequence2 : subList2) {
 
-        List<Sequence> newSequences = sequence1.mergeInsert(sequence2, maxPreInsertOffset);
+        List<Sequence> newSequences = sequence1.mergeInsert(sequence2, maxInsertPosAmount);
         result.addAll(newSequences);
 
       }

@@ -22,7 +22,7 @@ public interface EquipmentRepository {
    *
    * @param equipment
    */
-  void registerEquipment(Equipment equipment);
+  void register(Equipment equipment);
 
   /**
    * 批量注册装备

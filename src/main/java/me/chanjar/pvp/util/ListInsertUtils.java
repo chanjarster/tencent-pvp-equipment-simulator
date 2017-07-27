@@ -39,18 +39,18 @@ public class ListInsertUtils {
    * <br>
    * 也可以换一种理解方式：如何在 2 red balls 里插入 2 black balls。<br>
    * 2 red balls 的插入点有 2+1=3 个：_ r _ r _<br>
-   * 所以参数里的 maxPreInsertOffset 就是用来控制能够使用哪些插入点的，如果是2，那么就只能使用最后两个插入点： r _ r _ <br>
+   * 所以参数里的 maxInsertPosAmount 就是用来控制能够使用几个插入点的，如果是2，那么就只能使用最后两个插入点： r _ r _ <br>
    * 参考文档：https://math.stackexchange.com/questions/15884/permutation-with-duplicates<br>
    *
    *
    * @param base               被插入的list
    * @param another            插入list
    * @param reservePosition    保留插入点（数组下标），another的元素不能插入在保留插入点，也不能插入在保留插入点之前
-   * @param maxPreInsertOffset another序列最多往前插几个偏移量
+   * @param maxInsertPosAmount 最多尝试几个插入点
    * @return
    */
   public static List<List<String>> mergeInsert(List<String> base, List<String> another,
-      final int reservePosition, final int maxPreInsertOffset) {
+      final int reservePosition, final int maxInsertPosAmount) {
 
     if (CollectionUtils.isEmpty(another)) {
       List<List<String>> res = new ArrayList<>(1);
@@ -58,7 +58,7 @@ public class ListInsertUtils {
       return res;
     }
 
-    int[] insertPositions = getInsertPositions(base.size(), reservePosition, maxPreInsertOffset);
+    int[] insertPositions = getInsertPositions(base.size(), reservePosition, maxInsertPosAmount);
 
     List<String> newAnother = new ArrayList<>(another);
     String anotherFirst = newAnother.remove(0);
@@ -70,7 +70,7 @@ public class ListInsertUtils {
       List<String> newBase = new ArrayList<>(base);
       newBase.add(insertPosition, anotherFirst);
 
-      res.addAll(mergeInsert(newBase, newAnother, insertPosition, maxPreInsertOffset));
+      res.addAll(mergeInsert(newBase, newAnother, insertPosition, maxInsertPosAmount));
 
     }
 

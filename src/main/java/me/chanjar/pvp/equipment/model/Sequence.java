@@ -30,9 +30,9 @@ public class Sequence {
    * @return
    * @see ListInsertUtils#mergeInsert(List, List, int, int)
    */
-  public List<Sequence> mergeInsert(Sequence another, int maxPreInsertOffset) {
+  public List<Sequence> mergeInsert(Sequence another, int maxInsertPosAmount) {
 
-    List<List<String>> lists = ListInsertUtils.mergeInsert(equipmentIds, another.getEquipmentIds(), -1, maxPreInsertOffset);
+    List<List<String>> lists = ListInsertUtils.mergeInsert(equipmentIds, another.getEquipmentIds(), -1, maxInsertPosAmount);
 
     return lists.stream().map(list -> new Sequence(list)).collect(toList());
   }

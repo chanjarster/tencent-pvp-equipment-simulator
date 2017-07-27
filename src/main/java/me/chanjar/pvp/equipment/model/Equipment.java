@@ -2,6 +2,7 @@ package me.chanjar.pvp.equipment.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -15,19 +16,6 @@ public interface Equipment {
   String getId();
 
   void setId(String id);
-
-  /**
-   * 获得如果要购买此装备的装备数量变化清单（递归的包含依赖装备），比如：
-   * <pre>
-   *    a
-   *   / \
-   *  b   c
-   * </pre>
-   * 那么其结果就是[+1, +1, -1]，因为买b +1、买C +1、买a -2+1=-1（合成掉b,c）
-   *
-   * @return
-   */
-  int[] getOccupancyDeltaList();
 
   /**
    * 类型
@@ -73,6 +61,20 @@ public interface Equipment {
   void setRemark(String remark);
 
   /**
+   * 获得如果要购买此装备的装备数量变化清单（递归地包含依赖装备），比如：
+   * <pre>
+   *    a
+   *   / \
+   *  b   c
+   * </pre>
+   * 那么其结果就是[+1, +1, -1]，因为买b +1、买C +1、买a -2+1=-1（合成掉b,c）
+   *
+   * @return
+   */
+  @JsonIgnore
+  int[] getOccupancyDeltaList();
+
+  /**
    * 递归的获得依赖装备ID列表
    *
    * @return
@@ -81,9 +83,32 @@ public interface Equipment {
   List<String> getDependsOnRecursively();
 
   /**
-   * 获得本装备购买顺序的排列<br>
-   * 获得包括自己节点在内的，所有子节点的树遍历结果，遍历结果不是pre-order, in-order, post-order中的任何一种。<br>
-   * 而是在保留先后顺序前提下的，所有可能结果，简单来说就是：子节点必须在父节点之前，但是兄弟子节点的先后顺序可以不一样。<br>
+   * 递归地获得依赖装备的数量
+   *
+   * @return
+   */
+  @JsonIgnore
+  int getDependsOnAmountRecursively();
+
+  /**
+   * 大致计算所有装备购买顺序的数量（递归计算的）。比如：
+   * <pre>
+   *    a
+   *   / \
+   *  b   c
+   * </pre>
+   * 它的装备购买顺序有两种：[b, c, a], [c, b, a]，所以返回2。<br>
+   * 计算结果不考虑重复情况，比如a依赖两个b，那么返回的结果依然是2<br>
+   *
+   * @return
+   */
+  @JsonIgnore
+  BigInteger getPossibleSequenceAmount();
+
+  /**
+   * 获得所有本装备的购买顺序<br>
+   * 获得包括自己节点在内的，所有子节点的树遍历结果，遍历结果是对pre-order的再编排。<br>
+   * 简单来说就是：子节点必须在父节点之前，但是兄弟子节点的先后顺序可以不一样。<br>
    *
    * @param maxPreInsertOffset another序列最多往前插几个偏移量
    * @return

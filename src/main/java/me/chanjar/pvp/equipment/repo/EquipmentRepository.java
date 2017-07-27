@@ -53,4 +53,9 @@ public interface EquipmentRepository {
    * @return
    */
   List<Equipment> getAll();
+
+  /**
+   * 清空所有装备
+   */
+  void deleteAll();
 }

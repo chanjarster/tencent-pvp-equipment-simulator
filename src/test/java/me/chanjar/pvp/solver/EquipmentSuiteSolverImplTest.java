@@ -13,7 +13,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest(classes = {
@@ -52,19 +51,26 @@ public class EquipmentSuiteSolverImplTest extends AbstractTestNGSpringContextTes
     finalEquipments.add(equipmentRepository.getById("贤者的庇护"));
     finalEquipments.add(equipmentRepository.getById("不祥征兆"));
 
-    final int batCapacity = 6;
-    final int maxPreInsertOffset = 2;
-
-    List<List<Equipment>> lists = equipmentSuiteSolver.getFeasibleFinalEquipmentSequences(batCapacity, finalEquipments);
-    for (List<Equipment> list : lists) {
-      System.out.println(Arrays.toString(list.stream().map(Equipment::getId).toArray()));
-
-      List<List<Equipment>> equipmentPurchaseSequences =
-          equipmentSuiteSolver.getEquipmentPurchaseSequences(batCapacity, list, maxPreInsertOffset);
-      for (List<Equipment> equipmentPurchaseSequence : equipmentPurchaseSequences) {
-        System.out.println(Arrays.toString(equipmentPurchaseSequence.stream().map(Equipment::getId).toArray()));
-      }
+    Equipment aggregator = equipmentRepository.newModel();
+    aggregator.setId("_AGGREGATOR_");
+    for (Equipment finalEquipment : finalEquipments) {
+      aggregator.getDependsOn().add(finalEquipment.getId());
     }
+    System.out.println(aggregator.getPossibleSequenceAmount());
+
+    //    final int batCapacity = 6;
+    //    final int maxPreInsertOffset = 2;
+    //
+    //    List<List<Equipment>> lists = equipmentSuiteSolver.getFeasibleFinalEquipmentSequences(batCapacity, finalEquipments);
+    //    for (List<Equipment> list : lists) {
+    //      System.out.println(Arrays.toString(list.stream().map(Equipment::getId).toArray()));
+    //
+    //      List<List<Equipment>> equipmentPurchaseSequences =
+    //          equipmentSuiteSolver.getEquipmentPurchaseSequences(batCapacity, list, maxPreInsertOffset);
+    //      for (List<Equipment> equipmentPurchaseSequence : equipmentPurchaseSequences) {
+    //        System.out.println(Arrays.toString(equipmentPurchaseSequence.stream().map(Equipment::getId).toArray()));
+    //      }
+    //    }
 
   }
 

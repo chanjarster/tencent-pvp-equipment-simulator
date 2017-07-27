@@ -4,24 +4,43 @@ import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.equipment.repo.EquipmentRepositoryImpl;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class EquipmentModelTest {
+
   private EquipmentRepository equipmentRepository = new EquipmentRepositoryImpl();
 
+  @AfterMethod(alwaysRun = true)
+  public void clearEquipmentRepository() {
+    equipmentRepository.deleteAll();
+  }
+
   /**
-   * single node: a
+   * <pre>
+   * a
+   * </pre>
    *
-   * @throws Exception
+   * @return
    */
-  @Test
-  public void testGetPermutation1() throws Exception {
+  @DataProvider
+  public Object[][] tree1() {
 
     Equipment a = createEquipment("a", null);
+
+    return new Object[][] {
+        new Object[] { a }
+    };
+  }
+
+  @Test(dataProvider = "tree1")
+  public void testGetPermutation1(Equipment a) throws Exception {
 
     Permutation permutation = a.calculatePermutation(1);
 
@@ -30,10 +49,8 @@ public class EquipmentModelTest {
 
   }
 
-  @Test
-  public void testGetOccupancyDeltaList1() throws Exception {
-
-    Equipment a = createEquipment("a", null);
+  @Test(dataProvider = "tree1")
+  public void testGetOccupancyDeltaList1(Equipment a) throws Exception {
 
     int[] occupancyDeltaList = a.getOccupancyDeltaList();
 
@@ -42,22 +59,42 @@ public class EquipmentModelTest {
 
   }
 
+  @Test(dataProvider = "tree1")
+  public void testGetDependsOnAmountRecursively1(Equipment a) throws Exception {
+
+    assertEquals(a.getDependsOnAmountRecursively(), 0);
+  }
+
+  @Test(dataProvider = "tree1")
+  public void testGetPossibleSequenceAmount1(Equipment a) throws Exception {
+
+    assertEquals(a.getPossibleSequenceAmount().intValue(), 1);
+  }
+
 
   /**
-   * nodes:
    * <pre>
    *      a
    *     / \
    *    b   c
    * </pre>
-   * @throws Exception
+   *
+   * @return
    */
-  @Test
-  public void testGetPermutation2() throws Exception {
+  @DataProvider
+  public Object[][] tree2() {
 
     Equipment a = createEquipment("a", new String[] { "b", "c" });
     createEquipment("b", null);
     createEquipment("c", null);
+
+    return new Object[][] {
+        new Object[] { a }
+    };
+  }
+
+  @Test(dataProvider = "tree2")
+  public void testGetPermutation2(Equipment a) throws Exception {
 
     Permutation permutation = a.calculatePermutation(2);
 
@@ -66,12 +103,8 @@ public class EquipmentModelTest {
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("c", "b", "a")));
   }
 
-  @Test
-  public void testGetOccupancyDeltaList2() throws Exception {
-
-    Equipment a = createEquipment("a", new String[] { "b", "c" });
-    createEquipment("b", null);
-    createEquipment("c", null);
+  @Test(dataProvider = "tree2")
+  public void testGetOccupancyDeltaList2(Equipment a) throws Exception {
 
     int[] occupancyDeltaList = a.getOccupancyDeltaList();
 
@@ -80,9 +113,19 @@ public class EquipmentModelTest {
 
   }
 
+  @Test(dataProvider = "tree2")
+  public void testGetDependsOnAmountRecursively2(Equipment a) throws Exception {
+
+    assertEquals(a.getDependsOnAmountRecursively(), 2);
+  }
+
+  @Test(dataProvider = "tree2")
+  public void testGetPossibleSequenceAmount2(Equipment a) throws Exception {
+
+    assertEquals(a.getPossibleSequenceAmount().intValue(), 2);
+  }
 
   /**
-   * nodes:
    * <pre>
    *      x
    *     / \
@@ -90,16 +133,25 @@ public class EquipmentModelTest {
    *   /     \
    *  a1      b1
    * </pre>
-   * @throws Exception
+   *
+   * @return
    */
-  @Test
-  public void testGetPermutation3() throws Exception {
+  @DataProvider
+  public Object[][] tree3() {
 
     Equipment x = createEquipment("x", new String[] { "a2", "b2" });
     createEquipment("a2", new String[] { "a1" });
     createEquipment("a1", null);
     createEquipment("b2", new String[] { "b1" });
     createEquipment("b1", null);
+
+    return new Object[][] {
+        new Object[] { x }
+    };
+  }
+
+  @Test(dataProvider = "tree3")
+  public void testGetPermutation3(Equipment x) throws Exception {
 
     Permutation permutation = x.calculatePermutation(3);
 
@@ -113,14 +165,8 @@ public class EquipmentModelTest {
 
   }
 
-  @Test
-  public void testGetOccupancyDeltaList3() throws Exception {
-
-    Equipment x = createEquipment("x", new String[] { "a2", "b2" });
-    createEquipment("a2", new String[] { "a1" });
-    createEquipment("a1", null);
-    createEquipment("b2", new String[] { "b1" });
-    createEquipment("b1", null);
+  @Test(dataProvider = "tree3")
+  public void testGetOccupancyDeltaList3(Equipment x) throws Exception {
 
     int[] occupancyDeltaList = x.getOccupancyDeltaList();
 
@@ -129,8 +175,19 @@ public class EquipmentModelTest {
 
   }
 
+  @Test(dataProvider = "tree3")
+  public void testGetDependsOnAmountRecursively3(Equipment x) throws Exception {
+
+    assertEquals(x.getDependsOnAmountRecursively(), 4);
+  }
+
+  @Test(dataProvider = "tree3")
+  public void testGetPossibleSequenceAmount3(Equipment a) throws Exception {
+
+    assertEquals(a.getPossibleSequenceAmount().intValue(), 6);
+  }
+
   /**
-   * nodes:
    * <pre>
    *      a
    *     / \
@@ -138,60 +195,88 @@ public class EquipmentModelTest {
    *   / \   \
    *  d   e   f
    * </pre>
-   * @throws Exception
+   *
+   * @return
    */
-  @Test
-  public void testGetPermutation4() throws Exception {
+  @DataProvider
+  public Object[][] tree4() {
 
-    Equipment x = createEquipment("a", new String[] { "b", "c" });
+    Equipment a = createEquipment("a", new String[] { "b", "c" });
     createEquipment("b", new String[] { "d", "e" });
     createEquipment("d", null);
     createEquipment("e", null);
     createEquipment("c", new String[] { "f" });
     createEquipment("f", null);
 
-    Permutation permutation = x.calculatePermutation(4);
+    return new Object[][] {
+        new Object[] { a }
+    };
+  }
+
+  @Test(dataProvider = "tree4")
+  public void testGetPermutation4(Equipment a) throws Exception {
+
+    Permutation permutation = a.calculatePermutation(4);
 
     assertThat(permutation.getSequenceList()).hasSize(20);
 
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,c,d,e,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,d,c,e,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,d,e,c,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,d,e,b,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("d,f,c,e,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("d,f,e,c,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("d,f,e,b,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("d,e,f,c,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("d,e,f,b,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("d,e,b,f,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,c,e,d,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,e,c,d,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,e,d,c,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("f,e,d,b,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,f,c,d,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,f,d,c,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,f,d,b,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,c,b,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,b,c,a", ','))));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList(StringUtils.split("e,d,b,f,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,c,d,e,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,d,c,e,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,d,e,c,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,d,e,b,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("d,f,c,e,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("d,f,e,c,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("d,f,e,b,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("d,e,f,c,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("d,e,f,b,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("d,e,b,f,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,c,e,d,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,e,c,d,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,e,d,c,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("f,e,d,b,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("e,f,c,d,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("e,f,d,c,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("e,f,d,b,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,c,b,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,b,c,a", ','))));
+    assertThat(permutation.getSequenceList())
+        .contains(new Sequence(Arrays.asList(StringUtils.split("e,d,b,f,c,a", ','))));
 
   }
 
-  @Test
-  public void testGetOccupancyDeltaList4() throws Exception {
+  @Test(dataProvider = "tree4")
+  public void testGetOccupancyDeltaList4(Equipment a) throws Exception {
 
-    Equipment x = createEquipment("a", new String[] { "b", "c" });
-    createEquipment("b", new String[] { "d", "e" });
-    createEquipment("d", null);
-    createEquipment("e", null);
-    createEquipment("c", new String[] { "f" });
-    createEquipment("f", null);
-
-    int[] occupancyDeltaList = x.getOccupancyDeltaList();
+    int[] occupancyDeltaList = a.getOccupancyDeltaList();
 
     assertThat(occupancyDeltaList).hasSize(6);
     assertThat(occupancyDeltaList).containsSequence(1, 1, -1, 1, 0, -1);
 
+  }
+
+  @Test(dataProvider = "tree4")
+  public void testGetDependsOnAmountRecursively4(Equipment a) throws Exception {
+
+    assertEquals(a.getDependsOnAmountRecursively(), 5);
   }
 
   private Equipment createEquipment(String id, String[] dependsOn) {
@@ -203,6 +288,45 @@ public class EquipmentModelTest {
 
     equipmentRepository.registerEquipment(equipment);
     return equipment;
+  }
+
+  @Test(dataProvider = "tree4")
+  public void testGetPossibleSequenceAmount4(Equipment a) throws Exception {
+
+    assertEquals(a.getPossibleSequenceAmount().intValue(), 20);
+  }
+
+  /**
+   * <pre>
+   *      a
+   *     / \
+   *    b   c
+   *   /|\   \
+   *  d e f  g
+   * </pre>
+   *
+   * @return
+   */
+  @DataProvider
+  public Object[][] tree5() {
+
+    Equipment a = createEquipment("a", new String[] { "b", "c" });
+    createEquipment("b", new String[] { "d", "e", "f" });
+    createEquipment("d", null);
+    createEquipment("e", null);
+    createEquipment("f", null);
+    createEquipment("c", new String[] { "g" });
+    createEquipment("g", null);
+
+    return new Object[][] {
+        new Object[] { a }
+    };
+  }
+
+  @Test(dataProvider = "tree5")
+  public void testGetPossibleSequenceAmount5(Equipment a) throws Exception {
+
+    assertEquals(a.getPossibleSequenceAmount().intValue(), 90);
   }
 
 }

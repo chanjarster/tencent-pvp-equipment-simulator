@@ -1,11 +1,13 @@
 package me.chanjar.pvp.equipment.model;
 
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
+import me.chanjar.pvp.util.CombinationCalculator;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,6 +39,20 @@ public class EquipmentModel implements Equipment {
       result.add(id);
     }
     return result;
+  }
+
+  @Override
+  public int getDependsOnAmountRecursively() {
+
+    if (CollectionUtils.isEmpty(dependsOn)) {
+      return 0;
+    }
+
+    int sum = 0;
+    for (String id : dependsOn) {
+      sum += equipmentRepository.getById(id).getDependsOnAmountRecursively() + 1;
+    }
+    return sum;
   }
 
   @Override
@@ -85,6 +101,34 @@ public class EquipmentModel implements Equipment {
     }
 
     return ArrayUtils.add(res, 1 - dependsOn.size());
+  }
+
+  @Override
+  public BigInteger getPossibleSequenceAmount() {
+
+    if (CollectionUtils.isEmpty(dependsOn)) {
+      return BigInteger.ONE;
+    }
+
+    // 子装备购买数量乘积
+    BigInteger subPossibleSequenceAmountMultiply = BigInteger.ONE;
+
+    List<Equipment> subEquipments = equipmentRepository.getByIds(dependsOn);
+    for (Equipment subEquipment : subEquipments) {
+      subPossibleSequenceAmountMultiply = subPossibleSequenceAmountMultiply.multiply(subEquipment.getPossibleSequenceAmount());
+    }
+
+    // 子装备组合数乘积
+    BigInteger subCombinationMultiply = BigInteger.ONE;
+    int sumSubTreeNodesAmount = 0;
+    for (Equipment subEquipment : subEquipments) {
+      int subTreeNodesAmount = subEquipment.getDependsOnAmountRecursively() + 1;
+      sumSubTreeNodesAmount += subTreeNodesAmount;
+      long subTreeCombinationNumber = CombinationCalculator.C(sumSubTreeNodesAmount, subTreeNodesAmount);
+      subCombinationMultiply = subCombinationMultiply.multiply(BigInteger.valueOf(subTreeCombinationNumber));
+    }
+
+    return subPossibleSequenceAmountMultiply.multiply(subCombinationMultiply);
   }
 
   @Override

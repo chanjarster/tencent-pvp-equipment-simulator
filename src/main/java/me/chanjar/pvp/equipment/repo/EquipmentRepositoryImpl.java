@@ -56,4 +56,8 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
     return new ArrayList<>(equipmentMap.values());
   }
 
+  @Override
+  public void deleteAll() {
+    equipmentMap.clear();
+  }
 }

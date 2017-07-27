@@ -8,7 +8,11 @@ import java.util.Set;
 /**
  * http://www.programcreek.com/2013/02/leetcode-permutations-ii-java/
  */
-public class PermutationHelper {
+public abstract class PermutationGenerator {
+
+  private PermutationGenerator() {
+    // static
+  }
 
   public static <T> List<List<T>> permuteUnique(List<T> num) {
     List<List<T>> returnList = new ArrayList<>();

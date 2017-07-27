@@ -6,7 +6,7 @@ import me.chanjar.pvp.equipment.model.Permutation;
 import me.chanjar.pvp.equipment.model.Sequence;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.simulator.BagSimulator;
-import me.chanjar.pvp.util.PermutationHelper;
+import me.chanjar.pvp.util.PermutationGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
   public List<List<Equipment>> getFeasibleFinalEquipmentSequences(int bagCapacity, List<Equipment> finalEquipmentList) {
 
     // 获得装备列表的排列
-    List<List<Equipment>> finalEquipmentPermutationList = PermutationHelper.permuteUnique(finalEquipmentList);
+    List<List<Equipment>> finalEquipmentPermutationList = PermutationGenerator.permuteUnique(finalEquipmentList);
 
     List<List<Equipment>> result = new ArrayList<>();
 

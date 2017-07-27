@@ -3,7 +3,7 @@ package me.chanjar.pvp.solver;
 import me.chanjar.pvp.equipment.model.Equipment;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.equipment.repo.EquipmentRepositoryImpl;
-import me.chanjar.pvp.simulator.BagSimulatorImpl;
+import me.chanjar.pvp.bag.BagSimulatorImpl;
 import me.chanjar.pvp.util.EquipmentImporter;
 import me.chanjar.pvp.util.EquipmentImporterImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,14 +60,14 @@ public class EquipmentSuiteSolverImplTest extends AbstractTestNGSpringContextTes
     System.out.println(aggregator.getPossibleSequenceAmount());
 
     final int batCapacity = 6;
-    final int maxInsertPosAmount = 2;
+    final int maxResultAmount = 2;
 
     List<List<Equipment>> lists = equipmentSuiteSolver.getFeasibleFinalEquipmentSequences(batCapacity, finalEquipments);
     for (List<Equipment> list : lists) {
       System.out.println(Arrays.toString(list.stream().map(Equipment::getId).toArray()));
       //
       //      List<List<Equipment>> equipmentPurchaseSequences =
-      //          equipmentSuiteSolver.getEquipmentPurchaseSequences(batCapacity, list, maxInsertPosAmount);
+      //          equipmentSuiteSolver.getEquipmentPurchaseSequences(batCapacity, list, maxResultAmount);
       //      for (List<Equipment> equipmentPurchaseSequence : equipmentPurchaseSequences) {
       //        System.out.println(Arrays.toString(equipmentPurchaseSequence.stream().map(Equipment::getId).toArray()));
       //      }

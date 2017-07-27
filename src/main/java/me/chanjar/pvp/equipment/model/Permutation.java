@@ -45,24 +45,30 @@ public class Permutation {
    * 看到没有，[a1, a2]始终保持前后顺序，只不过其前、后、中间插入了[b1, b2]，而[b1, b2]也始终保持前后顺序<br>
    *
    * @param another
-   * @param maxInsertPosAmount 最多尝试几个插入点
+   * @param maxResultAmount 最多返回的结果数量
    * @return 新的
    */
-  public Permutation merge(Permutation another, int maxInsertPosAmount) {
-
-    List<Sequence> result = new LinkedList<>();
+  public Permutation merge(Permutation another, int maxResultAmount) {
 
     List<Sequence> subList1 = sequenceList;
+    List<Sequence> subList2 = another.getSequenceList();
 
-    List<Sequence> anotherSequenceList = another.getSequenceList();
-    List<Sequence> subList2 = anotherSequenceList;
+    List<Sequence> result = new ArrayList<>(maxResultAmount);
 
     for (Sequence sequence1 : subList1) {
 
       for (Sequence sequence2 : subList2) {
 
-        List<Sequence> newSequences = sequence1.mergeInsert(sequence2, maxInsertPosAmount);
-        result.addAll(newSequences);
+        List<Sequence> newSequences = sequence1.combineUnique(sequence2, maxResultAmount);
+
+        for (Sequence newSequence : newSequences) {
+
+          if (result.size() >= maxResultAmount) {
+            return new Permutation(result);
+          }
+          result.add(newSequence);
+
+        }
 
       }
 

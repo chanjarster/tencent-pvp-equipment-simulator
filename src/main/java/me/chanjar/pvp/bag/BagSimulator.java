@@ -1,6 +1,5 @@
-package me.chanjar.pvp.simulator;
+package me.chanjar.pvp.bag;
 
-import me.chanjar.pvp.bag.Bag;
 import me.chanjar.pvp.equipment.model.Equipment;
 
 import java.util.List;

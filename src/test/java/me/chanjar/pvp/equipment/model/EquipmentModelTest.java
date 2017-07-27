@@ -42,7 +42,7 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree1")
   public void testGetPermutation1(Equipment a) throws Exception {
 
-    Permutation permutation = a.calculatePermutation(1);
+    Permutation permutation = a.calculatePermutation(1000);
 
     assertThat(permutation.getSequenceList()).hasSize(1);
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a")));
@@ -96,7 +96,7 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree2")
   public void testGetPermutation2(Equipment a) throws Exception {
 
-    Permutation permutation = a.calculatePermutation(2);
+    Permutation permutation = a.calculatePermutation(1000);
 
     assertThat(permutation.getSequenceList()).hasSize(2);
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b", "c", "a")));
@@ -153,7 +153,7 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree3")
   public void testGetPermutation3(Equipment x) throws Exception {
 
-    Permutation permutation = x.calculatePermutation(3);
+    Permutation permutation = x.calculatePermutation(1000);
 
     assertThat(permutation.getSequenceList()).hasSize(6);
     assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "b2", "a1", "a2", "x")));
@@ -216,7 +216,7 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree4")
   public void testGetPermutation4(Equipment a) throws Exception {
 
-    Permutation permutation = a.calculatePermutation(4);
+    Permutation permutation = a.calculatePermutation(1000);
 
     assertThat(permutation.getSequenceList()).hasSize(20);
 
@@ -279,17 +279,6 @@ public class EquipmentModelTest {
     assertEquals(a.getDependsOnAmountRecursively(), 5);
   }
 
-  private Equipment createEquipment(String id, String[] dependsOn) {
-    Equipment equipment = equipmentRepository.newModel();
-    equipment.setId(id);
-    if (ArrayUtils.isNotEmpty(dependsOn)) {
-      equipment.setDependsOn(Arrays.asList(dependsOn));
-    }
-
-    equipmentRepository.register(equipment);
-    return equipment;
-  }
-
   @Test(dataProvider = "tree4")
   public void testGetPossibleSequenceAmount4(Equipment a) throws Exception {
 
@@ -329,4 +318,15 @@ public class EquipmentModelTest {
     assertEquals(a.getPossibleSequenceAmount().intValue(), 90);
   }
 
+
+  private Equipment createEquipment(String id, String[] dependsOn) {
+    Equipment equipment = equipmentRepository.newModel();
+    equipment.setId(id);
+    if (ArrayUtils.isNotEmpty(dependsOn)) {
+      equipment.setDependsOn(Arrays.asList(dependsOn));
+    }
+
+    equipmentRepository.register(equipment);
+    return equipment;
+  }
 }

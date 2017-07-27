@@ -101,6 +101,7 @@ public interface Equipment {
    * 计算结果不考虑重复情况，比如a依赖两个b，那么返回的结果依然是2<br>
    * <br>
    * 算法说明见源代码：doc/出装顺序数计算说明.png
+   *
    * @return
    */
   @JsonIgnore
@@ -111,11 +112,12 @@ public interface Equipment {
    * 获得包括自己节点在内的，所有子节点的树遍历结果，遍历结果是对pre-order的再编排。<br>
    * 简单来说就是：子节点必须在父节点之前，但是兄弟子节点的先后顺序可以不一样。<br>
    *
-   * @param maxInsertPosAmount 最多尝试几个插入点
+   * @param maxResultAmount 最多返回的结果数量
    * @return
+   * @see me.chanjar.pvp.util.ListInsertUtils#combineUnique(List, List, int)
    */
   @JsonIgnore
-  Permutation calculatePermutation(int maxInsertPosAmount);
+  Permutation calculatePermutation(int maxResultAmount);
 
   Attribute getAttribute();
 

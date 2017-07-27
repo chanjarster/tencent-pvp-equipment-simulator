@@ -32,9 +32,9 @@ public interface EquipmentSuiteSolver {
    *
    * @param bagCapacity        背包容量，目前版本游戏里是6
    * @param finalEquipmentList 最终出装结果
-   * @param maxInsertPosAmount 最多尝试几个插入点
+   * @param maxResultAmount    在最多多少个结果里查询可行解
    */
   List<List<Equipment>> getEquipmentPurchaseSequences(int bagCapacity, List<Equipment> finalEquipmentList,
-      int maxInsertPosAmount);
+      int maxResultAmount);
 
 }

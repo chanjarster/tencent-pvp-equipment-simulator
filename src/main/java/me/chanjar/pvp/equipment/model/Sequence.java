@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 
 /**
  * 装备购买顺序
@@ -27,12 +26,13 @@ public class Sequence {
 
   /**
    * @param another
+   * @param maxResultAmount
    * @return
-   * @see ListInsertUtils#mergeInsert(List, List, int, int)
+   * @see ListInsertUtils#combineUnique(List, List, int)
    */
-  public List<Sequence> mergeInsert(Sequence another, int maxInsertPosAmount) {
+  public List<Sequence> combineUnique(Sequence another, int maxResultAmount) {
 
-    List<List<String>> lists = ListInsertUtils.mergeInsert(equipmentIds, another.getEquipmentIds(), -1, maxInsertPosAmount);
+    List<List<String>> lists = ListInsertUtils.combineUnique(equipmentIds, another.getEquipmentIds(), maxResultAmount);
 
     return lists.stream().map(list -> new Sequence(list)).collect(toList());
   }

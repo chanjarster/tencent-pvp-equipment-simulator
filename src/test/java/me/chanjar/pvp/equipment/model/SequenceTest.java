@@ -17,7 +17,7 @@ public class SequenceTest {
     Sequence sequence1 = new Sequence(Arrays.asList("a1", "a2"));
     Sequence sequence2 = new Sequence(Arrays.asList("b1", "b2"));
 
-    List<Sequence> sequences = sequence1.mergeInsert(sequence2, 3);
+    List<Sequence> sequences = sequence1.combineUnique(sequence2, 3);
 
     assertEquals(sequences.size(), 6);
     Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("b1", "b2", "a1", "a2")));
@@ -35,7 +35,7 @@ public class SequenceTest {
     Sequence sequence1 = new Sequence(Arrays.asList("a1", "a2"));
     Sequence sequence2 = new Sequence(Arrays.asList("a1", "a2"));
 
-    List<Sequence> sequences = sequence1.mergeInsert(sequence2, 3);
+    List<Sequence> sequences = sequence1.combineUnique(sequence2, 3);
 
     assertEquals(sequences.size(), 2);
     Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("a1", "a2", "a1", "a2")));
@@ -49,7 +49,7 @@ public class SequenceTest {
     Sequence sequence1 = new Sequence(Arrays.asList("a1"));
     Sequence sequence2 = new Sequence(Arrays.asList("b1", "b2", "b3"));
 
-    List<Sequence> sequences = sequence1.mergeInsert(sequence2, 2);
+    List<Sequence> sequences = sequence1.combineUnique(sequence2, 2);
 
     assertEquals(sequences.size(), 4);
     Assertions.assertThat(sequences).contains(new Sequence(Arrays.asList("a1", "b1", "b2", "b3")));

@@ -5,7 +5,7 @@ import me.chanjar.pvp.equipment.model.Equipment;
 import me.chanjar.pvp.equipment.model.Permutation;
 import me.chanjar.pvp.equipment.model.Sequence;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
-import me.chanjar.pvp.simulator.BagSimulator;
+import me.chanjar.pvp.bag.BagSimulator;
 import me.chanjar.pvp.util.PermutationGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,7 +61,7 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
 
   @Override
   public List<List<Equipment>> getEquipmentPurchaseSequences(int bagCapacity, List<Equipment> finalEquipmentList,
-      int maxInsertPosAmount) {
+      int maxResultAmount) {
 
     Equipment aggregator = equipmentRepository.newModel();
     aggregator.setId("_AGGREGATOR_");
@@ -69,7 +69,7 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
       aggregator.getDependsOn().add(finalEquipment.getId());
     }
 
-    Permutation solutionPermutation = aggregator.calculatePermutation(maxInsertPosAmount);
+    Permutation solutionPermutation = aggregator.calculatePermutation(maxResultAmount);
 
     LOGGER.debug("Find {} possible ways", solutionPermutation.getSequenceList().size());
 

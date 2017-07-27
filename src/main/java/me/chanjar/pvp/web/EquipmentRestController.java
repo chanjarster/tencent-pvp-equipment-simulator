@@ -81,23 +81,24 @@ public class EquipmentRestController {
     return NumberFormat.getIntegerInstance().format(result);
 
   }
+
   /**
-   * 传入最终装备出装顺序，获得含子装备的购买顺序
+   * 传入最终装备出装顺序，获得可行的含子装备的购买顺序
    *
-   * @param equipmentIds
-   * @param bagCapacity
-   * @param maxInsertPosAmount
+   * @param equipmentIds    最终装备出装顺序
+   * @param bagCapacity     背包数量
+   * @param maxResultAmount 在最多多少个结果里，查找可行解
    * @return
    */
   @RequestMapping(method = GET, path = "/equipment-purchase-sequences", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
   public Set<List<String>> getEquipmentPurchaseSequences(
       @RequestParam("equipmentIds[]") List<String> equipmentIds,
       @RequestParam("bagCapacity") int bagCapacity,
-      @RequestParam("maxInsertPosAmount") int maxInsertPosAmount) {
+      @RequestParam("maxResultAmount") int maxResultAmount) {
     List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
 
     List<List<Equipment>> equipmentPurchaseSequences =
-        equipmentSuiteSolver.getEquipmentPurchaseSequences(bagCapacity, equipmentList, maxInsertPosAmount);
+        equipmentSuiteSolver.getEquipmentPurchaseSequences(bagCapacity, equipmentList, maxResultAmount);
 
     Set<List<String>> result = new LinkedHashSet<>(equipmentPurchaseSequences.size());
 

@@ -26,6 +26,15 @@ public class EquipmentSkill {
    */
   private boolean addable;
 
+  public EquipmentSkill() {
+  }
+
+  public EquipmentSkill(String name, String desc, boolean addable) {
+    this.name = name;
+    this.desc = desc;
+    this.addable = addable;
+  }
+
   public String getName() {
     return name;
   }

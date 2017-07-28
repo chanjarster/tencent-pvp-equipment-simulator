@@ -10,16 +10,21 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 /**
- * 装备购买顺序
+ * 购买方案 - 所有含子装备+最终装备的购买顺序
  */
-public class Sequence {
+public class PurchasePlan {
 
   private List<String> equipmentIds = new ArrayList<>(40);
 
-  public Sequence(List<String> equipmentIds) {
+  public PurchasePlan(List<String> equipmentIds) {
     this.equipmentIds = equipmentIds;
   }
 
+  /**
+   * 装备购买顺序
+   *
+   * @return
+   */
   public List<String> getEquipmentIds() {
     return equipmentIds;
   }
@@ -30,15 +35,15 @@ public class Sequence {
    * @return
    * @see ListInsertUtils#combineUnique(List, List, int)
    */
-  public List<Sequence> combineUnique(Sequence another, int maxResultAmount) {
+  public List<PurchasePlan> combineUnique(PurchasePlan another, int maxResultAmount) {
 
     List<List<String>> lists = ListInsertUtils.combineUnique(equipmentIds, another.getEquipmentIds(), maxResultAmount);
 
-    return lists.stream().map(list -> new Sequence(list)).collect(toList());
+    return lists.stream().map(list -> new PurchasePlan(list)).collect(toList());
   }
 
   /**
-   * 追加结果
+   * 添加装备ID
    *
    * @param id
    */
@@ -54,7 +59,7 @@ public class Sequence {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    Sequence sequence = (Sequence) o;
+    PurchasePlan sequence = (PurchasePlan) o;
 
     return equipmentIds != null ? equipmentIds.equals(sequence.equipmentIds) : sequence.equipmentIds == null;
   }

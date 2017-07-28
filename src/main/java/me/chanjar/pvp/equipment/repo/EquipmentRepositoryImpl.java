@@ -34,7 +34,7 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
   }
 
   @Override
-  public void registerEquipments(Collection<Equipment> equipmentCollection) {
+  public void registerBatch(Collection<Equipment> equipmentCollection) {
     equipmentCollection.stream().forEach(e -> register(e));
   }
 

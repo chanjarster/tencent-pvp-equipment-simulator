@@ -1,0 +1,3101 @@
+[
+  {
+    "id": "铁剑",
+    "type": "ATTACK",
+    "price": 250,
+    "sellPrice": 150,
+    "attribute": {
+      "attack": 20,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "匕首",
+    "type": "ATTACK",
+    "price": 290,
+    "sellPrice": 174,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 10,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "搏击拳套",
+    "type": "ATTACK",
+    "price": 320,
+    "sellPrice": 192,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 8,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "吸血之镰",
+    "type": "ATTACK",
+    "price": 410,
+    "sellPrice": 246,
+    "attribute": {
+      "attack": 10,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 8,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "雷鸣刃",
+    "type": "ATTACK",
+    "price": 450,
+    "sellPrice": 270,
+    "attribute": {
+      "attack": 40,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "冲能拳套",
+    "type": "ATTACK",
+    "price": 550,
+    "sellPrice": 330,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 15,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "风暴巨剑",
+    "type": "ATTACK",
+    "price": 910,
+    "sellPrice": 546,
+    "attribute": {
+      "attack": 80,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "铁剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "日冕",
+    "type": "ATTACK",
+    "price": 790,
+    "sellPrice": 474,
+    "attribute": {
+      "attack": 40,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 300,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "残疾",
+          "desc": "普通攻击有30%几率降低敌人20%移动速度，持续2秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "铁剑",
+      "红玛瑙"
+    ],
+    "remark": null
+  },
+  {
+    "id": "狂暴双刃",
+    "type": "ATTACK",
+    "price": 890,
+    "sellPrice": 534,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 15,
+      "bustProbabilityPct": 10,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "匕首",
+      "搏击拳套"
+    ],
+    "remark": null
+  },
+  {
+    "id": "陨星",
+    "type": "ATTACK",
+    "price": 1080,
+    "sellPrice": 250,
+    "attribute": {
+      "attack": 45,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "切割",
+          "desc": "+60护甲穿透",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "铁剑",
+      "铁剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "破甲弓",
+    "type": "ATTACK",
+    "price": 2100,
+    "sellPrice": 1260,
+    "attribute": {
+      "attack": 80,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "45%物理护甲穿透",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "陨星",
+      "铁剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "末世",
+    "type": "ATTACK",
+    "price": 2160,
+    "sellPrice": 1296,
+    "attribute": {
+      "attack": 60,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 30,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 10,
+      "passiveSkills": [
+        {
+          "name": "破败",
+          "desc": "普通攻击附带敌人当前生命值8%的物理伤害（对野怪最多：80）",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "雷鸣刃",
+      "速击之枪",
+      "吸血之镰"
+    ],
+    "remark": null
+  },
+  {
+    "id": "名刀・司命",
+    "type": "ATTACK",
+    "price": 1760,
+    "sellPrice": 1056,
+    "attribute": {
+      "attack": 60,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 5,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "暗幕",
+          "desc": "免疫致命伤并免疫伤害、增加20%移动速度持续1秒近战/0.5秒远程，90秒冷却",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "雷鸣刃",
+      "铁剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "冰霜长矛",
+    "type": "ATTACK",
+    "price": 1980,
+    "sellPrice": 1182,
+    "attribute": {
+      "attack": 80,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 600,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "碎冰",
+          "desc": "普通攻击会减少目标30%攻击速度和移动速度，持续2秒。远程英雄使用时减速效果持续时间衰减为1秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "日冕",
+      "红玛瑙",
+      "铁剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "速击之枪",
+    "type": "ATTACK",
+    "price": 890,
+    "sellPrice": 534,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 25,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "精准",
+          "desc": "普通攻击附带（19+英雄等级*1）点物理伤害",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "匕首",
+      "匕首"
+    ],
+    "remark": null
+  },
+  {
+    "id": "制裁之刃",
+    "type": "ATTACK",
+    "price": 1800,
+    "sellPrice": 960,
+    "attribute": {
+      "attack": 100,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 10,
+      "passiveSkills": [
+        {
+          "name": "重伤",
+          "desc": "造成伤害使得目标的生命恢复效果减少50%，持续1.5秒（如果该伤害由普攻触发，则持续时间延长至3秒）",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "风暴巨剑",
+      "吸血之镰"
+    ],
+    "remark": null
+  },
+  {
+    "id": "泣血之刃",
+    "type": "ATTACK",
+    "price": 1740,
+    "sellPrice": 1044,
+    "attribute": {
+      "attack": 100,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 25,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "吸血之镰",
+      "风暴巨剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "无尽战刃",
+    "type": "ATTACK",
+    "price": 2140,
+    "sellPrice": 1284,
+    "attribute": {
+      "attack": 100,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 20,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "+50%暴击效果",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "风暴巨剑",
+      "铁剑",
+      "冲能拳套"
+    ],
+    "remark": null
+  },
+  {
+    "id": "宗师之力",
+    "type": "ATTACK",
+    "price": 2100,
+    "sellPrice": 1506,
+    "attribute": {
+      "attack": 60,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 400,
+      "maxHp": 400,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 20,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "强击",
+          "desc": "使用技能后，5秒内的下次普通攻击造成额外100%物理加成的物理伤害，这个效果有2秒的冷却时间",
+          "addable": false
+        },
+        {
+          "name": "残废",
+          "desc": "普通攻击有30%几率降低敌人20%移动速度，持续2秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "日冕",
+      "光辉之剑",
+      "冲能拳套"
+    ],
+    "remark": null
+  },
+  {
+    "id": "闪电匕首",
+    "type": "ATTACK",
+    "price": 1840,
+    "sellPrice": 1104,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 8,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 30,
+      "bustProbabilityPct": 20,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "电弧",
+          "desc": "普通攻击有20%几率释放连锁闪电，对目标造成100法术伤害（该效果有0.5秒CD）",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "搏击拳套",
+      "狂暴双刃"
+    ],
+    "remark": null
+  },
+  {
+    "id": "影刃",
+    "type": "ATTACK",
+    "price": 2070,
+    "sellPrice": 1242,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 40,
+      "bustProbabilityPct": 10,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "暴风",
+          "desc": "暴击后提升自身50%攻击速度，持续2秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "匕首",
+      "匕首",
+      "狂暴双刃"
+    ],
+    "remark": null
+  },
+  {
+    "id": "暗影战斧",
+    "type": "ATTACK",
+    "price": 2090,
+    "sellPrice": 1254,
+    "attribute": {
+      "attack": 85,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 0,
+      "cdCutdownPct": 15,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "切割",
+          "desc": "增加(50+英雄等级*10)点护甲穿透",
+          "addable": false
+        },
+        {
+          "name": "残废",
+          "desc": "普通攻击有30%几率降低敌人20%移动速度，持续2秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "日冕",
+      "陨星"
+    ],
+    "remark": null
+  },
+  {
+    "id": "破军",
+    "type": "ATTACK",
+    "price": 2950,
+    "sellPrice": 1770,
+    "attribute": {
+      "attack": 200,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "破军",
+          "desc": "目标生命低于50%时伤害提高30%",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "风暴巨剑",
+      "风暴巨剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "纯净苍穹",
+    "type": "ATTACK",
+    "price": 2230,
+    "sellPrice": 1338,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 40,
+      "bustProbabilityPct": 20,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "精准",
+          "desc": "普通攻击附带60点物理伤害",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "驱散",
+          "desc": "90秒CD，受到的所有伤害降低50%，持续1.5秒，可以在被控制时使用。",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "雷鸣刃",
+      "狂暴双刃"
+    ],
+    "remark": null
+  },
+  {
+    "id": "逐日之弓",
+    "type": "ATTACK",
+    "price": 2100,
+    "sellPrice": 890,
+    "attribute": {
+      "attack": 40,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 20,
+      "bustProbabilityPct": 15,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": [
+        {
+          "name": "逐日",
+          "desc": "增加自己150点普攻射程和30%移动速度，持续5秒，CD60秒（仅对远程英雄生效）",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "速击之枪",
+      "冲能拳套",
+      "匕首"
+    ],
+    "remark": null
+  },
+  {
+    "id": "破魔刀",
+    "type": "ATTACK",
+    "price": 2000,
+    "sellPrice": 910,
+    "attribute": {
+      "attack": 100,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "破魔",
+          "desc": "增加等同于自身物理攻击40%的法术防御，最多增加300点",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "风暴巨剑",
+      "抗魔披风",
+      "抗魔披风"
+    ],
+    "remark": null
+  },
+  {
+    "id": "咒术典籍",
+    "type": "MANA",
+    "price": 300,
+    "sellPrice": 180,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 40,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "蓝宝石",
+    "type": "MANA",
+    "price": 220,
+    "sellPrice": 132,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 300,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "炼金护符",
+    "type": "MANA",
+    "price": 120,
+    "sellPrice": 72,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 10,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "圣者法典",
+    "type": "MANA",
+    "price": 500,
+    "sellPrice": 300,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 20,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 8,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "元素杖",
+    "type": "MANA",
+    "price": 540,
+    "sellPrice": 324,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 80,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "大棒",
+    "type": "MANA",
+    "price": 820,
+    "sellPrice": 492,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 120,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "咒术典籍"
+    ],
+    "remark": null
+  },
+  {
+    "id": "破碎圣杯",
+    "type": "MANA",
+    "price": 900,
+    "sellPrice": 540,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 40,
+      "manaDefense": 100,
+      "mpRecoverPer5Secs": 20,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 5,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "咒术典籍",
+      "炼金护符"
+    ],
+    "remark": null
+  },
+  {
+    "id": "光辉之剑",
+    "type": "MANA",
+    "price": 730,
+    "sellPrice": 468,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 400,
+      "maxHp": 400,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "强击",
+          "desc": "使用技能后，5秒内的下一次普通攻击附加50%物理攻击（+30%法术加成）的法术伤害，这个效果有2秒的冷却时间",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "红玛瑙",
+      "蓝宝石"
+    ],
+    "remark": null
+  },
+  {
+    "id": "魅影面罩",
+    "type": "MANA",
+    "price": 1020,
+    "sellPrice": 612,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 70,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 300,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "+75法术穿透",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "咒术典籍",
+      "红玛瑙"
+    ],
+    "remark": null
+  },
+  {
+    "id": "进化水晶",
+    "type": "MANA",
+    "price": 720,
+    "sellPrice": 432,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 400,
+      "maxHp": 400,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "英勇奖赏",
+          "desc": "升级后在3秒内回复20%生命与法力值",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "红玛瑙",
+      "蓝宝石"
+    ],
+    "remark": null
+  },
+  {
+    "id": "血族之书",
+    "type": "MANA",
+    "price": 1240,
+    "sellPrice": 744,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 75,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "嗜血",
+          "desc": "增加20%法术吸血",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "咒术典籍",
+      "圣者法典"
+    ],
+    "remark": null
+  },
+  {
+    "id": "炽热支配者",
+    "type": "MANA",
+    "price": 1950,
+    "sellPrice": 1170,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 160,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 15,
+      "maxMp": 600,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "法力护盾",
+          "desc": "生命值低于30%时，立刻获得一个吸收450-1500（+50%法术加成）伤害的护盾，持续4秒，这个效果有90秒冷却时间",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "蓝宝石",
+      "大棒",
+      "炼金护符"
+    ],
+    "remark": null
+  },
+  {
+    "id": "梦魇之牙",
+    "type": "MANA",
+    "price": 2050,
+    "sellPrice": 1056,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 240,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "重伤",
+          "desc": "造成伤害使得目标的生命恢复效果减少50%，持续1.5秒（如果该伤害由普攻触发，则持续时间延长至3秒）",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "大棒",
+      "元素杖"
+    ],
+    "remark": null
+  },
+  {
+    "id": "虚无法杖",
+    "type": "MANA",
+    "price": 2110,
+    "sellPrice": 1266,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 180,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "+45%法术穿透",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "魅影面罩",
+      "元素杖"
+    ],
+    "remark": null
+  },
+  {
+    "id": "博学者之怒",
+    "type": "MANA",
+    "price": 2300,
+    "sellPrice": 1380,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 240,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": [
+        {
+          "name": "毁灭",
+          "desc": "法术攻击提升35%",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "大棒",
+      "咒术典籍",
+      "咒术典籍"
+    ],
+    "remark": null
+  },
+  {
+    "id": "辉月",
+    "type": "MANA",
+    "price": 1990,
+    "sellPrice": 1194,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 160,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": [
+        {
+          "name": "月之守护",
+          "desc": "90秒CD，免疫所有效果，不能移动、攻击和使用技能，持续1.5秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "大棒",
+      "圣者法典"
+    ],
+    "remark": null
+  },
+  {
+    "id": "回响之杖",
+    "type": "MANA",
+    "price": 2100,
+    "sellPrice": 1260,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 240,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 7,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "回响",
+          "desc": "技能命中会触发小范围爆炸造成50（+50%法术加成）法术伤害，这个效果有5秒CD",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "大棒",
+      "咒术典籍"
+    ],
+    "remark": null
+  },
+  {
+    "id": "冰霜法杖",
+    "type": "MANA",
+    "price": 2100,
+    "sellPrice": 1260,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 150,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1050,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "结霜",
+          "desc": "英雄技能造成伤害会附带20%的减速效果，持续2秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "大棒",
+      "力量腰带"
+    ],
+    "remark": null
+  },
+  {
+    "id": "痛苦面具",
+    "type": "MANA",
+    "price": 2040,
+    "sellPrice": 1224,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 140,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 0,
+      "cdCutdownPct": 5,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "折磨",
+          "desc": "技能伤害会造成相当于目标当前生命值8%的法术伤害，这个效果有3秒CD（对野怪伤害上限：200）",
+          "addable": false
+        },
+        {
+          "name": "+75法术穿透",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "魅影面罩",
+      "咒术典籍"
+    ],
+    "remark": null
+  },
+  {
+    "id": "巫术法杖",
+    "type": "MANA",
+    "price": 2120,
+    "sellPrice": 1272,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 120,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 400,
+      "maxHp": 400,
+      "speedPct": 8,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "强击",
+          "desc": "使用技能后，5秒内下一次普通攻击附加30%物理攻击（+65%法术加成）的法术伤害，这个效果有2秒冷却时间",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "光辉之剑",
+      "咒术典籍"
+    ],
+    "remark": null
+  },
+  {
+    "id": "圣杯",
+    "type": "MANA",
+    "price": 2030,
+    "sellPrice": 1218,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 140,
+      "manaDefense": 140,
+      "mpRecoverPer5Secs": 25,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 20,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "法力源泉",
+          "desc": "击杀助攻后回复20%法力值",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "圣者法典",
+      "破碎圣杯",
+      "咒术典籍"
+    ],
+    "remark": null
+  },
+  {
+    "id": "时之预言",
+    "type": "MANA",
+    "price": 2090,
+    "sellPrice": 1254,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 160,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 600,
+      "maxHp": 800,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "英勇奖赏",
+          "desc": "升级后在3秒内回复20%生命值与法力值",
+          "addable": false
+        },
+        {
+          "name": "守护",
+          "desc": "每5点法功提升1点物理和法术防御，最多提升200点",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "大棒",
+      "进化水晶"
+    ],
+    "remark": null
+  },
+  {
+    "id": "贤者之书",
+    "type": "MANA",
+    "price": 2990,
+    "sellPrice": 1794,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 400,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "刻印",
+          "desc": "增加1400点生命",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "大棒",
+      "大棒"
+    ],
+    "remark": null
+  },
+  {
+    "id": "噬神之书",
+    "type": "MANA",
+    "price": 2090,
+    "sellPrice": 1254,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 180,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 800,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "嗜血",
+          "desc": "增加25%法术吸血",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "血族之书",
+      "咒术典籍",
+      "红玛瑙"
+    ],
+    "remark": null
+  },
+  {
+    "id": "红玛瑙",
+    "type": "DEFENSE",
+    "price": 300,
+    "sellPrice": 180,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 300,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "布甲",
+    "type": "DEFENSE",
+    "price": 220,
+    "sellPrice": 132,
+    "attribute": {
+      "attack": 0,
+      "defense": 90,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "抗魔披风",
+    "type": "DEFENSE",
+    "price": 220,
+    "sellPrice": 132,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 90,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "提神水晶",
+    "type": "DEFENSE",
+    "price": 140,
+    "sellPrice": 84,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 30,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "力量腰带",
+    "type": "DEFENSE",
+    "price": 900,
+    "sellPrice": 540,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "红玛瑙",
+      "红玛瑙"
+    ],
+    "remark": null
+  },
+  {
+    "id": "熔炼之心",
+    "type": "DEFENSE",
+    "price": 900,
+    "sellPrice": 540,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 700,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "献祭",
+          "desc": "每秒对身边的敌军造成（60+英雄等级*2）点法术伤害",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "红玛瑙"
+    ],
+    "remark": null
+  },
+  {
+    "id": "神隐斗篷",
+    "type": "DEFENSE",
+    "price": 1020,
+    "sellPrice": 612,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 50,
+      "manaAttack": 0,
+      "manaDefense": 120,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 700,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "红玛瑙",
+      "抗魔披风"
+    ],
+    "remark": null
+  },
+  {
+    "id": "雪山圆盾",
+    "type": "DEFENSE",
+    "price": 900,
+    "sellPrice": 540,
+    "attribute": {
+      "attack": 0,
+      "defense": 100,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 400,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "布甲",
+      "蓝宝石"
+    ],
+    "remark": null
+  },
+  {
+    "id": "守护者之铠",
+    "type": "DEFENSE",
+    "price": 730,
+    "sellPrice": 438,
+    "attribute": {
+      "attack": 0,
+      "defense": 210,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "寒铁",
+          "desc": "受到攻击会减少攻击者30%攻击速度，持续3秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "布甲",
+      "布甲"
+    ],
+    "remark": null
+  },
+  {
+    "id": "反伤刺甲",
+    "type": "DEFENSE",
+    "price": 1840,
+    "sellPrice": 882,
+    "attribute": {
+      "attack": 40,
+      "defense": 420,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "荆棘",
+          "desc": "受到物理伤害时，会将伤害量的15%以法术伤害的形式回敬给对方（按照计算伤害减免之前的初始伤害值计算）",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "布甲",
+      "布甲",
+      "雷鸣刃"
+    ],
+    "remark": null
+  },
+  {
+    "id": "血魔之怒",
+    "type": "DEFENSE",
+    "price": 2120,
+    "sellPrice": 1272,
+    "attribute": {
+      "attack": 20,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "血怒",
+          "desc": "生命值低于30%时获得血怒，增加40点攻击与强大护盾持续8秒，效果有90秒CD",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "红玛瑙",
+      "红玛瑙",
+      "铁剑"
+    ],
+    "remark": null
+  },
+  {
+    "id": "红莲斗篷",
+    "type": "DEFENSE",
+    "price": 1830,
+    "sellPrice": 1098,
+    "attribute": {
+      "attack": 0,
+      "defense": 240,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1200,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "献祭",
+          "desc": "每秒对身边的敌军造成（100+英雄等级*4）点法术伤害",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "熔炼之心",
+      "布甲"
+    ],
+    "remark": null
+  },
+  {
+    "id": "霸者重装",
+    "type": "DEFENSE",
+    "price": 2370,
+    "sellPrice": 1422,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 100,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 2000,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "复苏",
+          "desc": "脱离战斗后，每秒恢复2%最大生命值",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "力量腰带",
+      "红玛瑙",
+      "提神水晶"
+    ],
+    "remark": null
+  },
+  {
+    "id": "不祥征兆",
+    "type": "DEFENSE",
+    "price": 2180,
+    "sellPrice": 1308,
+    "attribute": {
+      "attack": 0,
+      "defense": 270,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1200,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "寒铁",
+          "desc": "受到攻击会减少攻击者30%攻击速度与15%移动速度，持续3秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "力量腰带",
+      "守护者之铠"
+    ],
+    "remark": null
+  },
+  {
+    "id": "不死鸟之眼",
+    "type": "DEFENSE",
+    "price": 2100,
+    "sellPrice": 1260,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 100,
+      "manaAttack": 0,
+      "manaDefense": 240,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1200,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "血统",
+          "desc": "治疗效果+10%，血量低于50%时，治疗效果加成会增加到30%",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神隐斗篷",
+      "红玛瑙",
+      "提神水晶"
+    ],
+    "remark": null
+  },
+  {
+    "id": "魔女斗篷",
+    "type": "DEFENSE",
+    "price": 2120,
+    "sellPrice": 1272,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 360,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "迷雾",
+          "desc": "脱战3秒后获得一个吸收（200+英雄等级*120）点法术伤害的护盾",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神隐斗篷",
+      "力量腰带"
+    ],
+    "remark": null
+  },
+  {
+    "id": "极寒风暴",
+    "type": "DEFENSE",
+    "price": 2100,
+    "sellPrice": 1260,
+    "attribute": {
+      "attack": 0,
+      "defense": 360,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 500,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 20,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "冰心",
+          "desc": "受到单次伤害超过当前生命值10%时触发寒冰冲击，对周围敌人造成（50+英雄等级*10）点法术伤害并降低其30%攻击和移动速度，持续2秒，这个效果有2秒内置CD",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "雪山圆盾",
+      "守护者之铠"
+    ],
+    "remark": null
+  },
+  {
+    "id": "冰痕之握",
+    "type": "DEFENSE",
+    "price": 2020,
+    "sellPrice": 1242,
+    "attribute": {
+      "attack": 0,
+      "defense": 200,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 500,
+      "maxHp": 800,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "强击",
+          "desc": "使用技能后，5秒内的下一次普攻造成范围30%减速（远程英雄使用时减速效果衰减为20%）与（150+英雄等级*20）点物理伤害，这个效果有3秒的冷却时间",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "光辉之剑",
+      "布甲",
+      "布甲"
+    ],
+    "remark": null
+  },
+  {
+    "id": "贤者的庇护",
+    "type": "DEFENSE",
+    "price": 2080,
+    "sellPrice": 1248,
+    "attribute": {
+      "attack": 140,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 140,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "复生",
+          "desc": "死亡后2秒原地复活，并获得（2000+英雄等级*100）点生命值，这个效果有3分钟CD",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": null
+  },
+  {
+    "id": "暴烈之甲",
+    "type": "DEFENSE",
+    "price": 1820,
+    "sellPrice": 1092,
+    "attribute": {
+      "attack": 60,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "无畏",
+          "desc": "受到伤害获得1层增益，每层提供2%移速和2%伤害输出率，最高5层，持续3秒",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "力量腰带",
+      "布甲"
+    ],
+    "remark": null
+  },
+  {
+    "id": "神速之靴",
+    "type": "MOVE",
+    "price": 250,
+    "sellPrice": 150,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+30移动速度",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "影忍之足",
+    "type": "MOVE",
+    "price": 690,
+    "sellPrice": 414,
+    "attribute": {
+      "attack": 0,
+      "defense": 110,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+60移动速度",
+          "addable": false
+        },
+        {
+          "name": "减少15%受到普通攻击的伤害",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神速之靴",
+      "布甲"
+    ],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "抵抗之靴",
+    "type": "MOVE",
+    "price": 690,
+    "sellPrice": 414,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 110,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+60移动速度",
+          "addable": false
+        },
+        {
+          "name": "+35%韧性",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神速之靴",
+      "抗魔披风"
+    ],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "冷静之靴",
+    "type": "MOVE",
+    "price": 710,
+    "sellPrice": 426,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 10,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+60移动速度",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神速之靴"
+    ],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "秘法之靴",
+    "type": "MOVE",
+    "price": 790,
+    "sellPrice": 474,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+60移动速度",
+          "addable": false
+        },
+        {
+          "name": "+75法术穿透",
+          "desc": "",
+          "addable": true
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神速之靴"
+    ],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "急速战靴",
+    "type": "MOVE",
+    "price": 710,
+    "sellPrice": 426,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 15,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+60移动速度",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神速之靴",
+      "匕首"
+    ],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "疾步之靴",
+    "type": "MOVE",
+    "price": 630,
+    "sellPrice": 378,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "鞋类移速",
+          "desc": "+60移动速度",
+          "addable": false
+        },
+        {
+          "name": "神行",
+          "desc": "脱离战斗后增加60移动速度",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "神速之靴"
+    ],
+    "remark": "所有鞋类装备的移速加成效果不叠加"
+  },
+  {
+    "id": "近卫荣耀",
+    "type": "ASSIST",
+    "price": 2010,
+    "sellPrice": 1206,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 10,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        },
+        {
+          "name": "军团",
+          "desc": "提升周围800范围友军(30+英雄等级*3)点物理攻击和(60+英雄等级*6)点法术攻击",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "鼓舞之盾",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "奔狼纹章",
+    "type": "ASSIST",
+    "price": 2090,
+    "sellPrice": 1254,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 10,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "奔腾号令",
+          "desc": "60秒CD，增加周围所有友方英雄50%的移动速度，持续3秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "风灵纹章",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "鼓舞之盾",
+    "type": "ASSIST",
+    "price": 1210,
+    "sellPrice": 726,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        },
+        {
+          "name": "军团",
+          "desc": "提升周围800范围友军(20+英雄等级*2)点物理攻击和(40+英雄等级*4)点法术攻击",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "学识宝石",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "风灵纹章",
+    "type": "ASSIST",
+    "price": 1180,
+    "sellPrice": 708,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "奔腾号令",
+          "desc": "60秒CD，增加周围所有友方英雄50%的移动速度，持续3秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "学识宝石",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "救赎之翼",
+    "type": "ASSIST",
+    "price": 1800,
+    "sellPrice": 1080,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 10,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "救援",
+          "desc": "60秒CD，立即为周围血量最低的友方英雄（包括自己）提供一个吸收（800+英雄等级*80）伤害的护盾，并提升其30%移动速度，持续3秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "风之轻语",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "风之轻语",
+    "type": "ASSIST",
+    "price": 1010,
+    "sellPrice": 606,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "救援",
+          "desc": "60秒CD，立即为周围血量最低的友方英雄（包括自己）提供一个吸收（500+英雄等级*50）伤害的护盾，并提升其15%移动速度，持续3秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "学识宝石",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "极影",
+    "type": "ASSIST",
+    "price": 1910,
+    "sellPrice": 1146,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 10,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "鼓舞",
+          "desc": "60秒CD，增加周围友军50%的攻击速度和20%冷却缩减，持续3秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "凤鸣指环",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "凤鸣指环",
+    "type": "ASSIST",
+    "price": 1070,
+    "sellPrice": 642,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 500,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": [
+        {
+          "name": "鼓舞",
+          "desc": "60秒CD，增加周围友军50%的攻击速度和20%冷却缩减，持续3秒",
+          "addable": false
+        }
+      ]
+    },
+    "dependsOn": [
+      "学识宝石",
+      "红玛瑙"
+    ],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "学识宝石",
+    "type": "ASSIST",
+    "price": 300,
+    "sellPrice": 180,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 5,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "奉献",
+          "desc": "如果自己的经验或经济是己方最低，每3秒会额外获得5点经验或金币",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": "所有辅助装备的主动技能均为全队共享冷却时间"
+  },
+  {
+    "id": "狩猎宽刃",
+    "type": "HUNTER",
+    "price": 250,
+    "sellPrice": 150,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 10,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加20%对野怪的伤害，击杀野怪获得经验提升20",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  },
+  {
+    "id": "游击弯刀",
+    "type": "HUNTER",
+    "price": 750,
+    "sellPrice": 450,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 1000,
+      "speedPct": 10,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加30%对野怪的伤害，击杀野怪获得经验提升30%",
+          "addable": false
+        },
+        {
+          "name": "磨砺",
+          "desc": "击杀野怪增加自身8点法术强度，最多叠加15层",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "狩猎宽刃"
+    ],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  },
+  {
+    "id": "巡守利斧",
+    "type": "HUNTER",
+    "price": 750,
+    "sellPrice": 450,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加30%对野怪的伤害，击杀野怪获得经验提升30%",
+          "addable": false
+        },
+        {
+          "name": "磨砺",
+          "desc": "击杀野怪增加自身70点最大生命，最多叠加15层",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "狩猎宽刃"
+    ],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  },
+  {
+    "id": "追击刀锋",
+    "type": "HUNTER",
+    "price": 750,
+    "sellPrice": 450,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加30%对野怪的伤害，击杀野怪获得经验提升30%",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "狩猎宽刃"
+    ],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  },
+  {
+    "id": "符文大剑",
+    "type": "HUNTER",
+    "price": 910,
+    "sellPrice": 546,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 100,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 400,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加30%对野怪的伤害，击杀野怪获得经验提升30%",
+          "addable": false
+        },
+        {
+          "name": "强击",
+          "desc": "使用技能后，5秒内的下一次普通攻击附加30%法术攻击的法术伤害，这个效果有2秒的冷却时间",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "游击弯刀",
+      "咒术典籍",
+      "蓝宝石"
+    ],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  },
+  {
+    "id": "巨人之握",
+    "type": "HUNTER",
+    "price": 1500,
+    "sellPrice": 900,
+    "attribute": {
+      "attack": 0,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 800,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 0,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加30%对野怪的伤害，击杀野怪获得经验提升30%",
+          "addable": false
+        },
+        {
+          "name": "献祭",
+          "desc": "每秒对附近敌人造成60点法术伤害",
+          "addable": false
+        },
+        {
+          "name": "磨砺",
+          "desc": "击杀野怪增加自身70点最大生命，最多叠加15层",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "巡守利斧",
+      "红玛瑙",
+      "红玛瑙"
+    ],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  },
+  {
+    "id": "贪婪之噬",
+    "type": "HUNTER",
+    "price": 1460,
+    "sellPrice": 876,
+    "attribute": {
+      "attack": 45,
+      "defense": 0,
+      "hpRecoverPer5Secs": 0,
+      "manaAttack": 0,
+      "manaDefense": 0,
+      "mpRecoverPer5Secs": 0,
+      "maxMp": 0,
+      "maxHp": 0,
+      "speedPct": 0,
+      "cdCutdownPct": 0,
+      "attackSpeedPct": 12,
+      "bustProbabilityPct": 0,
+      "attackSuckBloodPct": 0,
+      "passiveSkills": [
+        {
+          "name": "打野",
+          "desc": "增加30%对野怪的伤害，击杀野怪获得经验提升30%",
+          "addable": false
+        },
+        {
+          "name": "磨砺",
+          "desc": "击杀野怪增加自身2%攻击速度，最多叠加15层",
+          "addable": false
+        }
+      ],
+      "initiativeSkills": []
+    },
+    "dependsOn": [
+      "追击刀锋",
+      "铁剑",
+      "匕首"
+    ],
+    "remark": "打野刀升级后将惩戒技能替换为寒冰惩戒：寒冰惩戒可对英雄使用，造成伤害和减速效果"
+  }
+]

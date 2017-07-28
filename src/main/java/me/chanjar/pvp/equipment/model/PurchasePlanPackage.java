@@ -1,25 +1,24 @@
 package me.chanjar.pvp.equipment.model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 装备购买顺序的排列
+ * 购买方案包 - 包含多个购买方案
  */
-public class Permutation {
+public class PurchasePlanPackage {
 
   /**
-   * 装备购买顺序
+   * 购买方案清单
    */
-  private List<Sequence> sequenceList = new ArrayList<>(100);
+  private List<PurchasePlan> purchasePlans = new ArrayList<>(100);
 
-  public Permutation(List<Sequence> sequenceList) {
-    this.sequenceList = sequenceList;
+  public PurchasePlanPackage(List<PurchasePlan> purchasePlans) {
+    this.purchasePlans = purchasePlans;
   }
 
-  public List<Sequence> getSequenceList() {
-    return sequenceList;
+  public List<PurchasePlan> getPurchasePlans() {
+    return purchasePlans;
   }
 
   /**
@@ -48,23 +47,23 @@ public class Permutation {
    * @param maxResultAmount 最多返回的结果数量
    * @return 新的
    */
-  public Permutation merge(Permutation another, int maxResultAmount) {
+  public PurchasePlanPackage merge(PurchasePlanPackage another, int maxResultAmount) {
 
-    List<Sequence> subList1 = sequenceList;
-    List<Sequence> subList2 = another.getSequenceList();
+    List<PurchasePlan> subList1 = purchasePlans;
+    List<PurchasePlan> subList2 = another.getPurchasePlans();
 
-    List<Sequence> result = new ArrayList<>(maxResultAmount);
+    List<PurchasePlan> result = new ArrayList<>(maxResultAmount);
 
-    for (Sequence sequence1 : subList1) {
+    for (PurchasePlan sequence1 : subList1) {
 
-      for (Sequence sequence2 : subList2) {
+      for (PurchasePlan sequence2 : subList2) {
 
-        List<Sequence> newSequences = sequence1.combineUnique(sequence2, maxResultAmount);
+        List<PurchasePlan> newSequences = sequence1.combineUnique(sequence2, maxResultAmount);
 
-        for (Sequence newSequence : newSequences) {
+        for (PurchasePlan newSequence : newSequences) {
 
           if (result.size() >= maxResultAmount) {
-            return new Permutation(result);
+            return new PurchasePlanPackage(result);
           }
           result.add(newSequence);
 
@@ -74,7 +73,7 @@ public class Permutation {
 
     }
 
-    return new Permutation(result);
+    return new PurchasePlanPackage(result);
 
   }
 
@@ -83,14 +82,14 @@ public class Permutation {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
 
-    Permutation that = (Permutation) o;
+    PurchasePlanPackage that = (PurchasePlanPackage) o;
 
-    return sequenceList != null ? sequenceList.equals(that.sequenceList) : that.sequenceList == null;
+    return purchasePlans != null ? purchasePlans.equals(that.purchasePlans) : that.purchasePlans == null;
   }
 
   @Override
   public int hashCode() {
-    return sequenceList != null ? sequenceList.hashCode() : 0;
+    return purchasePlans != null ? purchasePlans.hashCode() : 0;
   }
 
 }

@@ -56,31 +56,31 @@ public class EquipmentModel implements Equipment {
   }
 
   @Override
-  public Permutation calculatePermutation(int maxResultAmount) {
+  public PurchasePlanPackage getPurchasePlanPackage(int maxResultAmount) {
 
     if (CollectionUtils.isEmpty(dependsOn)) {
 
-      return new Permutation(
+      return new PurchasePlanPackage(
           Collections.singletonList(
-              new Sequence(Collections.singletonList(id))
+              new PurchasePlan(Collections.singletonList(id))
           )
       );
     }
 
-    List<Permutation> subPermutations = new ArrayList<>();
+    List<PurchasePlanPackage> subPermutations = new ArrayList<>();
     for (String id : dependsOn) {
-      subPermutations.add(equipmentRepository.getById(id).calculatePermutation(maxResultAmount));
+      subPermutations.add(equipmentRepository.getById(id).getPurchasePlanPackage(maxResultAmount));
     }
 
-    Permutation result = subPermutations.get(0);
+    PurchasePlanPackage result = subPermutations.get(0);
 
     for (int j = 1; j < subPermutations.size(); j++) {
-      Permutation sub2 = subPermutations.get(j);
+      PurchasePlanPackage sub2 = subPermutations.get(j);
       result = result.merge(sub2, maxResultAmount);
 
     }
 
-    result.getSequenceList().stream().forEach(s -> s.append(this.id));
+    result.getPurchasePlans().stream().forEach(s -> s.append(this.id));
     return result;
 
   }

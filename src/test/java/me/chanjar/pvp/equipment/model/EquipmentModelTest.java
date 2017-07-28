@@ -42,10 +42,10 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree1")
   public void testGetPermutation1(Equipment a) throws Exception {
 
-    Permutation permutation = a.calculatePermutation(1000);
+    PurchasePlanPackage permutation = a.getPurchasePlanPackage(1000);
 
-    assertThat(permutation.getSequenceList()).hasSize(1);
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a")));
+    assertThat(permutation.getPurchasePlans()).hasSize(1);
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("a")));
 
   }
 
@@ -96,11 +96,11 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree2")
   public void testGetPermutation2(Equipment a) throws Exception {
 
-    Permutation permutation = a.calculatePermutation(1000);
+    PurchasePlanPackage permutation = a.getPurchasePlanPackage(1000);
 
-    assertThat(permutation.getSequenceList()).hasSize(2);
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b", "c", "a")));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("c", "b", "a")));
+    assertThat(permutation.getPurchasePlans()).hasSize(2);
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("b", "c", "a")));
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("c", "b", "a")));
   }
 
   @Test(dataProvider = "tree2")
@@ -153,15 +153,15 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree3")
   public void testGetPermutation3(Equipment x) throws Exception {
 
-    Permutation permutation = x.calculatePermutation(1000);
+    PurchasePlanPackage permutation = x.getPurchasePlanPackage(1000);
 
-    assertThat(permutation.getSequenceList()).hasSize(6);
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "b2", "a1", "a2", "x")));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "a1", "b2", "a2", "x")));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("b1", "a1", "a2", "b2", "x")));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "b1", "b2", "a2", "x")));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "b1", "a2", "b2", "x")));
-    assertThat(permutation.getSequenceList()).contains(new Sequence(Arrays.asList("a1", "a2", "b1", "b2", "x")));
+    assertThat(permutation.getPurchasePlans()).hasSize(6);
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("b1", "b2", "a1", "a2", "x")));
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("b1", "a1", "b2", "a2", "x")));
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("b1", "a1", "a2", "b2", "x")));
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("a1", "b1", "b2", "a2", "x")));
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("a1", "b1", "a2", "b2", "x")));
+    assertThat(permutation.getPurchasePlans()).contains(new PurchasePlan(Arrays.asList("a1", "a2", "b1", "b2", "x")));
 
   }
 
@@ -216,50 +216,50 @@ public class EquipmentModelTest {
   @Test(dataProvider = "tree4")
   public void testGetPermutation4(Equipment a) throws Exception {
 
-    Permutation permutation = a.calculatePermutation(1000);
+    PurchasePlanPackage permutation = a.getPurchasePlanPackage(1000);
 
-    assertThat(permutation.getSequenceList()).hasSize(20);
+    assertThat(permutation.getPurchasePlans()).hasSize(20);
 
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,c,d,e,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,d,c,e,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,d,e,c,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,d,e,b,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("d,f,c,e,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("d,f,e,c,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("d,f,e,b,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("d,e,f,c,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("d,e,f,b,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("d,e,b,f,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,c,e,d,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,e,c,d,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,e,d,c,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("f,e,d,b,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("e,f,c,d,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("e,f,d,c,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("e,f,d,b,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,c,b,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("e,d,f,b,c,a", ','))));
-    assertThat(permutation.getSequenceList())
-        .contains(new Sequence(Arrays.asList(StringUtils.split("e,d,b,f,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,c,d,e,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,d,c,e,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,d,e,c,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,d,e,b,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("d,f,c,e,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("d,f,e,c,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("d,f,e,b,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("d,e,f,c,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("d,e,f,b,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("d,e,b,f,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,c,e,d,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,e,c,d,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,e,d,c,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("f,e,d,b,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("e,f,c,d,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("e,f,d,c,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("e,f,d,b,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("e,d,f,c,b,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("e,d,f,b,c,a", ','))));
+    assertThat(permutation.getPurchasePlans())
+        .contains(new PurchasePlan(Arrays.asList(StringUtils.split("e,d,b,f,c,a", ','))));
 
   }
 

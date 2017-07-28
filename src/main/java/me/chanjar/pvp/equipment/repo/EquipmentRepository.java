@@ -29,7 +29,7 @@ public interface EquipmentRepository {
    *
    * @param equipmentCollection
    */
-  void registerEquipments(Collection<Equipment> equipmentCollection);
+  void registerBatch(Collection<Equipment> equipmentCollection);
 
   /**
    * 根据ID获得装备

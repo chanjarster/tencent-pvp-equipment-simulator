@@ -5,27 +5,22 @@ import me.chanjar.pvp.bag.BagAddResult;
 import me.chanjar.pvp.bag.BagSimulator;
 import me.chanjar.pvp.bag.BagSnapshot;
 import me.chanjar.pvp.equipment.model.Equipment;
+import me.chanjar.pvp.equipment.model.PurchasePlanPackage;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
+import me.chanjar.pvp.rawdata.RawDataImporter;
 import me.chanjar.pvp.solver.EquipmentSuiteSolver;
-import me.chanjar.pvp.util.EquipmentImporter;
+import me.chanjar.pvp.solver.FinalEquipmentPlan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.math.BigInteger;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
-import static java.util.stream.Collectors.toList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @RequestMapping(path = "/equipment")
@@ -35,116 +30,56 @@ public class EquipmentRestController {
 
   private EquipmentSuiteSolver equipmentSuiteSolver;
 
-  private EquipmentImporter equipmentImporter;
+  private RawDataImporter equipmentImporter;
 
   private BagSimulator bagSimulator;
 
+  /**
+   * 获得所有装备
+   *
+   * @return
+   */
   @RequestMapping(method = GET, path = "/all", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
   public List<Equipment> getAll() {
     return equipmentRepository.getAll();
   }
 
   /**
-   * 传入要获得的最终装备，获得可行的最终装备出装顺序
-   *
-   * @param equipmentIds
-   * @param bagCapacity
-   * @return
+   * @see EquipmentSuiteSolver#calculateFeasibleFinalEquipmentPlans(int, List)
    */
-  @RequestMapping(method = GET, path = "/feasible-final-equipment-sequences", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-  public Set<List<String>> getFeasibleFinalEquipmentSequences(
+  @RequestMapping(method = GET, path = "/feasible-final-equipment-plans", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
+  public List<FinalEquipmentPlan> calculateFeasibleFinalEquipmentPlans(
       @RequestParam("equipmentIds[]") List<String> equipmentIds,
       @RequestParam("bagCapacity") int bagCapacity) {
-    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
 
-    List<List<Equipment>> feasibleFinalEquipmentSequences =
-        equipmentSuiteSolver.getFeasibleFinalEquipmentSequences(bagCapacity, equipmentList);
+    return equipmentSuiteSolver.calculateFeasibleFinalEquipmentPlans(bagCapacity, equipmentIds);
 
-    Set<List<String>> result = new LinkedHashSet<>(feasibleFinalEquipmentSequences.size());
-
-    for (List<Equipment> feasibleFinalEquipmentSequence : feasibleFinalEquipmentSequences) {
-
-      result.add(new ArrayList<>(
-          feasibleFinalEquipmentSequence.stream().map(Equipment::getId).collect(toList())
-      ));
-
-    }
-
-    return result;
   }
 
   /**
-   * 传入要获得的最终装备，大致计算所有装备购买顺序(含子装备)的数量
-   *
-   * @param equipmentIds
-   * @return
+   * @see EquipmentSuiteSolver#calculatePurchasePlanAmount(FinalEquipmentPlan)
    */
-  @RequestMapping(method = GET, path = "/possible-sequence-amount")
-  public String getPossibleSequenceAmount(@RequestParam("equipmentIds[]") List<String> equipmentIds) {
+  @RequestMapping(method = GET, path = "/purchase-plan-amount")
+  public String calculatePurchasePlanAmount(@RequestParam("equipmentIds[]") List<String> equipmentIds) {
 
-    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
-    BigInteger result = equipmentSuiteSolver.getPossibleSequenceAmount(equipmentList);
+    BigInteger result = equipmentSuiteSolver.calculatePurchasePlanAmount(new FinalEquipmentPlan(equipmentIds));
     return NumberFormat.getIntegerInstance().format(result);
 
   }
 
   /**
-   * 传入最终装备出装顺序，获得可行的含子装备的购买顺序
-   *
-   * @param equipmentIds    最终装备出装顺序
-   * @param bagCapacity     背包数量
-   * @param maxResultAmount 在最多多少个结果里，查找可行解
-   * @return
+   * @see EquipmentSuiteSolver#calculatePurchasePlanPackage(int, FinalEquipmentPlan, int)
    */
-  @RequestMapping(method = GET, path = "/equipment-purchase-sequences", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-  public Set<List<String>> getEquipmentPurchaseSequences(
+  @RequestMapping(method = GET, path = "/purchase-plan-package", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
+  public PurchasePlanPackage calculatePurchasePlanPackage(
       @RequestParam("equipmentIds[]") List<String> equipmentIds,
       @RequestParam("bagCapacity") int bagCapacity,
       @RequestParam("maxResultAmount") int maxResultAmount) {
-    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
 
-    List<List<Equipment>> equipmentPurchaseSequences =
-        equipmentSuiteSolver.getEquipmentPurchaseSequences(bagCapacity, equipmentList, maxResultAmount);
+    PurchasePlanPackage purchasePlanPackage = equipmentSuiteSolver
+        .calculatePurchasePlanPackage(bagCapacity, new FinalEquipmentPlan(equipmentIds), maxResultAmount);
 
-    Set<List<String>> result = new LinkedHashSet<>(equipmentPurchaseSequences.size());
-
-    for (List<Equipment> feasibleFinalEquipmentSequence : equipmentPurchaseSequences) {
-
-      result.add(new ArrayList<>(
-          feasibleFinalEquipmentSequence.stream().map(Equipment::getId).collect(toList())
-      ));
-
-    }
-
-    return result;
-  }
-
-  /**
-   * 上传装备数据excel文件
-   *
-   * @return
-   */
-  @RequestMapping(method = POST, path = "/upload-data")
-  public String uploadData(MultipartFile file) throws IOException {
-    equipmentRepository.deleteAll();
-    equipmentImporter.load(file.getInputStream());
-    return "success";
-  }
-
-  /**
-   * 加载内置装备数据
-   *
-   * @return
-   */
-  @RequestMapping(method = POST, path = "/load-builtin-data")
-  public String loadBuiltinData() {
-
-    equipmentRepository.deleteAll();
-    List<Equipment> equipmentList = equipmentImporter
-        .load(getClass().getResourceAsStream("/equipment-list.xlsx"));
-    equipmentList.forEach(e -> equipmentRepository.register(e));
-    return "success";
-
+    return purchasePlanPackage;
   }
 
   /**
@@ -165,10 +100,7 @@ public class EquipmentRestController {
   }
 
   /**
-   * 传入装备购买顺序，获得过程效果
-   *
-   * @param equipmentIds
-   * @return
+   * @see BagSimulator#simulate(Bag, List)
    */
   @RequestMapping(method = GET, path = "/progress-effects")
   public List<BagSnapshot> getProgressEffect(
@@ -190,7 +122,7 @@ public class EquipmentRestController {
   }
 
   @Autowired
-  public void setEquipmentImporter(EquipmentImporter equipmentImporter) {
+  public void setEquipmentImporter(RawDataImporter equipmentImporter) {
     this.equipmentImporter = equipmentImporter;
   }
 

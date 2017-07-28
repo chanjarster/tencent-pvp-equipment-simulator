@@ -66,7 +66,7 @@ public class Attribute implements Cloneable {
 
     result.getInitiativeSkills().addAll(initiativeSkills);
     result.getInitiativeSkills().addAll(another.getInitiativeSkills());
-    
+
     return result;
   }
 

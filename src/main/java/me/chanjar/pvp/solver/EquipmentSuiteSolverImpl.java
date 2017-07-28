@@ -1,11 +1,11 @@
 package me.chanjar.pvp.solver;
 
 import me.chanjar.pvp.bag.Bag;
-import me.chanjar.pvp.equipment.model.Equipment;
-import me.chanjar.pvp.equipment.model.Permutation;
-import me.chanjar.pvp.equipment.model.Sequence;
-import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.bag.BagSimulator;
+import me.chanjar.pvp.equipment.model.Equipment;
+import me.chanjar.pvp.equipment.model.PurchasePlan;
+import me.chanjar.pvp.equipment.model.PurchasePlanPackage;
+import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.util.PermutationGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,76 +26,25 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
   private BagSimulator bagSimulator;
 
   @Override
-  public BigInteger getPossibleSequenceAmount(List<Equipment> finalEquipmentList) {
+  public List<FinalEquipmentPlan> calculateFeasibleFinalEquipmentPlans(int bagCapacity, List<String> finalEquipmentIds) {
 
-    Equipment aggregator = equipmentRepository.newModel();
-    aggregator.setId("_AGGREGATOR_");
-    for (Equipment finalEquipment : finalEquipmentList) {
-      aggregator.getDependsOn().add(finalEquipment.getId());
-    }
+    List<List<String>> finalEquipmentPermutationList = PermutationGenerator.permuteUnique(finalEquipmentIds);
 
-    return aggregator.getPossibleSequenceAmount();
-  }
+    List<FinalEquipmentPlan> result = new ArrayList<>();
 
+    for (List<String> ids : finalEquipmentPermutationList) {
 
-  @Override
-  public List<List<Equipment>> getFeasibleFinalEquipmentSequences(int bagCapacity, List<Equipment> finalEquipmentList) {
+      List<Equipment> equipments = equipmentRepository.getByIds(ids);
 
-    // 获得装备列表的排列
-    List<List<Equipment>> finalEquipmentPermutationList = PermutationGenerator.permuteUnique(finalEquipmentList);
-
-    List<List<Equipment>> result = new ArrayList<>();
-
-    for (List<Equipment> equipmentList : finalEquipmentPermutationList) {
-
-      if (!isRoughlyFeasible(bagCapacity, equipmentList)) {
+      if (!isRoughlyFeasible(bagCapacity, equipments)) {
         continue;
       }
 
-      result.add(equipmentList);
+      result.add(new FinalEquipmentPlan(ids));
     }
 
     return result;
-
   }
-
-  @Override
-  public List<List<Equipment>> getEquipmentPurchaseSequences(int bagCapacity, List<Equipment> finalEquipmentList,
-      int maxResultAmount) {
-
-    Equipment aggregator = equipmentRepository.newModel();
-    aggregator.setId("_AGGREGATOR_");
-    for (Equipment finalEquipment : finalEquipmentList) {
-      aggregator.getDependsOn().add(finalEquipment.getId());
-    }
-
-    Permutation solutionPermutation = aggregator.calculatePermutation(maxResultAmount);
-
-    LOGGER.debug("Find {} possible ways", solutionPermutation.getSequenceList().size());
-
-    List<List<Equipment>> result = new ArrayList<>();
-
-    for (Sequence solutionSequence : solutionPermutation.getSequenceList()) {
-
-      List<String> equipmentIds = solutionSequence.getEquipmentIds();
-      // 移除掉最后一个"_AGGREGATOR_"
-      equipmentIds.remove(equipmentIds.size() - 1);
-
-      List<Equipment> solutionEquipmentList = equipmentRepository.getByIds(equipmentIds);
-
-      Bag bag = new Bag(bagCapacity);
-      if (!bagSimulator.isFeasible(bag, solutionEquipmentList)) {
-        continue;
-      }
-
-      result.add(solutionEquipmentList);
-
-    }
-
-    return result;
-
-  }
-
 
   /**
    * 粗略看一下其是否有可行解，通过判断根据这个顺序购买装备的话，所需要的背包空槽是否会超出背包容量
@@ -118,6 +67,54 @@ public class EquipmentSuiteSolverImpl implements EquipmentSuiteSolver {
     return true;
 
   }
+
+  @Override
+  public BigInteger calculatePurchasePlanAmount(FinalEquipmentPlan finalEquipmentPlan) {
+
+    Equipment aggregator = equipmentRepository.newModel();
+    aggregator.setId("_AGGREGATOR_");
+    finalEquipmentPlan.getEquipmentIds().stream().forEach(id -> aggregator.getDependsOn().add(id));
+
+    return aggregator.getPossibleSequenceAmount();
+  }
+
+
+  @Override
+  public PurchasePlanPackage calculatePurchasePlanPackage(int bagCapacity, FinalEquipmentPlan finalEquipmentPlan,
+      int maxResultAmount) {
+
+    Equipment aggregator = equipmentRepository.newModel();
+    aggregator.setId("_AGGREGATOR_");
+    finalEquipmentPlan.getEquipmentIds().stream().forEach(id -> aggregator.getDependsOn().add(id));
+
+    PurchasePlanPackage possiblePackage = aggregator.getPurchasePlanPackage(maxResultAmount);
+
+    LOGGER.debug("Find {} possible ways", possiblePackage.getPurchasePlans().size());
+
+
+    List<PurchasePlan> purchasePlans = new ArrayList<>();
+
+    for (PurchasePlan possiblePurchasePlan : possiblePackage.getPurchasePlans()) {
+
+      List<String> equipmentIds = possiblePurchasePlan.getEquipmentIds();
+      // 移除掉最后一个"_AGGREGATOR_"
+      equipmentIds.remove(equipmentIds.size() - 1);
+
+      List<Equipment> solutionEquipments = equipmentRepository.getByIds(equipmentIds);
+
+      Bag bag = new Bag(bagCapacity);
+      if (!bagSimulator.isFeasible(bag, solutionEquipments)) {
+        continue;
+      }
+
+      purchasePlans.add(possiblePurchasePlan);
+
+    }
+
+    return new PurchasePlanPackage(purchasePlans);
+
+  }
+
 
   @Autowired
   public void setEquipmentRepository(EquipmentRepository equipmentRepository) {

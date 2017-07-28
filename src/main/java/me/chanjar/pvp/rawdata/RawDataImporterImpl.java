@@ -1,4 +1,4 @@
-package me.chanjar.pvp.util;
+package me.chanjar.pvp.rawdata;
 
 import com.supwisdom.spreadsheet.mapper.bean.BeanPropertyWriteException;
 import com.supwisdom.spreadsheet.mapper.f2w.WorkbookReader;
@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.function.Function;
 
 @Component
-public class EquipmentImporterImpl implements EquipmentImporter {
+public class RawDataImporterImpl implements RawDataImporter {
 
   private EquipmentRepository equipmentRepository;
 

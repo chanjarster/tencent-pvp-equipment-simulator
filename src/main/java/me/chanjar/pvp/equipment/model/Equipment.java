@@ -108,7 +108,7 @@ public interface Equipment {
   BigInteger getPossibleSequenceAmount();
 
   /**
-   * 获得所有本装备的购买顺序<br>
+   * 获得本装备的购买方案包<br>
    * 获得包括自己节点在内的，所有子节点的树遍历结果，遍历结果是对pre-order的再编排。<br>
    * 简单来说就是：子节点必须在父节点之前，但是兄弟子节点的先后顺序可以不一样。<br>
    *
@@ -117,7 +117,7 @@ public interface Equipment {
    * @see me.chanjar.pvp.util.ListInsertUtils#combineUnique(List, List, int)
    */
   @JsonIgnore
-  Permutation calculatePermutation(int maxResultAmount);
+  PurchasePlanPackage getPurchasePlanPackage(int maxResultAmount);
 
   Attribute getAttribute();
 

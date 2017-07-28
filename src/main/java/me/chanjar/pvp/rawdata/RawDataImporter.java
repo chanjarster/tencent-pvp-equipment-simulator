@@ -1,11 +1,11 @@
-package me.chanjar.pvp.util;
+package me.chanjar.pvp.rawdata;
 
 import me.chanjar.pvp.equipment.model.Equipment;
 
 import java.io.InputStream;
 import java.util.List;
 
-public interface EquipmentImporter {
+public interface RawDataImporter {
 
   /**
    * 从excel导入

@@ -1,6 +1,6 @@
 package me.chanjar.pvp.solver;
 
-import me.chanjar.pvp.equipment.model.Equipment;
+import me.chanjar.pvp.equipment.model.PurchasePlanPackage;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -11,30 +11,30 @@ import java.util.List;
 public interface EquipmentSuiteSolver {
 
   /**
-   * 传入要获得的最终装备，大致计算所有装备购买顺序(含子装备)的数量
+   * 计算可行的出装方案
    *
-   * @param finalEquipmentList
+   * @param bagCapacity       背包容量
+   * @param finalEquipmentIds 想要计算的最终装备ID，顺序无所谓，因为本方法内部会做permutation，并检验每个结果的可行性
    * @return
    */
-  BigInteger getPossibleSequenceAmount(List<Equipment> finalEquipmentList);
+  List<FinalEquipmentPlan> calculateFeasibleFinalEquipmentPlans(int bagCapacity, List<String> finalEquipmentIds);
 
   /**
-   * 计算可行的最终装备出装顺序
+   * 传入出装方案，大致计算可能的购买方案的数量
    *
-   * @param bagCapacity
-   * @param finalEquipmentList
+   * @param finalEquipmentPlan 出装方案
    * @return
    */
-  List<List<Equipment>> getFeasibleFinalEquipmentSequences(int bagCapacity, List<Equipment> finalEquipmentList);
+  BigInteger calculatePurchasePlanAmount(FinalEquipmentPlan finalEquipmentPlan);
 
   /**
-   * 根据最终出装顺序，获得可行的装备购买顺序(含子装备)
+   * 传入出装方案，获得可行的购买方案包（含子装备）
    *
    * @param bagCapacity        背包容量，目前版本游戏里是6
-   * @param finalEquipmentList 最终出装结果
-   * @param maxResultAmount    在最多多少个结果里查询可行解
+   * @param finalEquipmentPlan 出装方案
+   * @param maxResultAmount    在最多多少个结果里搜索可行解
+   * @return
    */
-  List<List<Equipment>> getEquipmentPurchaseSequences(int bagCapacity, List<Equipment> finalEquipmentList,
+  PurchasePlanPackage calculatePurchasePlanPackage(int bagCapacity, FinalEquipmentPlan finalEquipmentPlan,
       int maxResultAmount);
-
 }

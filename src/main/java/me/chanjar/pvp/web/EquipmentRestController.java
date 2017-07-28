@@ -7,7 +7,6 @@ import me.chanjar.pvp.bag.BagSnapshot;
 import me.chanjar.pvp.equipment.model.Equipment;
 import me.chanjar.pvp.equipment.model.PurchasePlanPackage;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
-import me.chanjar.pvp.rawdata.RawDataImporter;
 import me.chanjar.pvp.solver.EquipmentSuiteSolver;
 import me.chanjar.pvp.solver.FinalEquipmentPlan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +25,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping(path = "/equipment")
 public class EquipmentRestController {
 
+  private static final int BAG_CAPACITY = 6;
+
+  private static final int MAX_RESULT_AMOUNT = 100000;
+
   private EquipmentRepository equipmentRepository;
 
   private EquipmentSuiteSolver equipmentSuiteSolver;
-
-  private RawDataImporter equipmentImporter;
 
   private BagSimulator bagSimulator;
 
@@ -49,10 +50,9 @@ public class EquipmentRestController {
    */
   @RequestMapping(method = GET, path = "/feasible-final-equipment-plans", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
   public List<FinalEquipmentPlan> calculateFeasibleFinalEquipmentPlans(
-      @RequestParam("equipmentIds[]") List<String> equipmentIds,
-      @RequestParam("bagCapacity") int bagCapacity) {
+      @RequestParam("equipmentIds[]") List<String> equipmentIds) {
 
-    return equipmentSuiteSolver.calculateFeasibleFinalEquipmentPlans(bagCapacity, equipmentIds);
+    return equipmentSuiteSolver.calculateFeasibleFinalEquipmentPlans(BAG_CAPACITY, equipmentIds);
 
   }
 
@@ -73,11 +73,13 @@ public class EquipmentRestController {
   @RequestMapping(method = GET, path = "/purchase-plan-package", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
   public PurchasePlanPackage calculatePurchasePlanPackage(
       @RequestParam("equipmentIds[]") List<String> equipmentIds,
-      @RequestParam("bagCapacity") int bagCapacity,
       @RequestParam("maxResultAmount") int maxResultAmount) {
 
+    if (maxResultAmount > MAX_RESULT_AMOUNT) {
+      throw new IllegalArgumentException("maxResultAmount must be <= " + MAX_RESULT_AMOUNT);
+    }
     PurchasePlanPackage purchasePlanPackage = equipmentSuiteSolver
-        .calculatePurchasePlanPackage(bagCapacity, new FinalEquipmentPlan(equipmentIds), maxResultAmount);
+        .calculatePurchasePlanPackage(BAG_CAPACITY, new FinalEquipmentPlan(equipmentIds), maxResultAmount);
 
     return purchasePlanPackage;
   }
@@ -104,11 +106,11 @@ public class EquipmentRestController {
    */
   @RequestMapping(method = GET, path = "/progress-effects")
   public List<BagSnapshot> getProgressEffect(
-      @RequestParam("bagCapacity") int bagCapacity,
       @RequestParam("equipmentIds[]") List<String> equipmentIds) {
 
     List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
-    return bagSimulator.simulate(new Bag(bagCapacity), equipmentList);
+
+    return bagSimulator.simulate(new Bag(BAG_CAPACITY), equipmentList);
   }
 
   @Autowired
@@ -119,11 +121,6 @@ public class EquipmentRestController {
   @Autowired
   public void setEquipmentSuiteSolver(EquipmentSuiteSolver equipmentSuiteSolver) {
     this.equipmentSuiteSolver = equipmentSuiteSolver;
-  }
-
-  @Autowired
-  public void setEquipmentImporter(RawDataImporter equipmentImporter) {
-    this.equipmentImporter = equipmentImporter;
   }
 
   @Autowired

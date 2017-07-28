@@ -22,7 +22,7 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-@RequestMapping(path = "/equipment")
+@RequestMapping(path = "/ws")
 public class EquipmentRestController {
 
   private static final int BAG_CAPACITY = 6;

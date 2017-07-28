@@ -1,0 +1,50 @@
+<div class="equipment">
+  <%= id %>
+  <div class="equipment-desc">
+    说明<br/>
+    买入价: <%= price %> <br/>
+    卖出价: <%= sellPrice %> <br/>
+    <% if (attribute.attack) { %>
+    物理攻击: +<%= attribute.attack %> <br/>
+    <% } %>
+    <% if (attribute.defense) { %>
+    物理防御: +<%= attribute.defense %> <br/>
+    <% } %>
+    <% if (attribute.hpRecoverPer5Secs) { %>
+    每5秒回血: +<%= attribute.hpRecoverPer5Secs %> <br/>
+    <% } %>
+    <% if (attribute.manaAttack) { %>
+    法术攻击: +<%= attribute.manaAttack %> <br/>
+    <% } %>
+    <% if (attribute.manaDefense) { %>
+    法术防御: +<%= attribute.manaDefense %> <br/>
+    <% } %>
+    <% if (attribute.mpRecoverPer5Secs) { %>
+    每5秒回蓝: +<%= attribute.mpRecoverPer5Secs %> <br/>
+    <% } %>
+    <% if (attribute.maxMp) { %>
+    最大法力: +<%= attribute.maxMp %> <br/>
+    <% } %>
+    <% if (attribute.maxHp) { %>
+    最大生命: +<%= attribute.maxHp %> <br/>
+    <% } %>
+    <% if (attribute.speedPct) { %>
+    移动速度: +<%= attribute.speedPct %>%<br/>
+    <% } %>
+    <% if (attribute.cdCutdownPct) { %>
+    冷却缩减: +<%= attribute.cdCutdownPct %>%<br/>
+    <% } %>
+    <% if (attribute.attackSpeedPct) { %>
+    攻击速度: +<%= attribute.attackSpeedPct %>%<br/>
+    <% } %>
+    <% if (attribute.bustProbabilityPct) { %>
+    暴击率: +<%= attribute.bustProbabilityPct %>%<br/>
+    <% } %>
+    <% if (attribute.attackSuckBloodPct) { %>
+    物理吸血: +<%= attribute.attackSuckBloodPct %>%<br/>
+    <% } %>
+    <% if (remark && remark != "") { %>
+    备注: +<%= remark %>%<br/>
+    <% } %>
+  </div>
+</div>

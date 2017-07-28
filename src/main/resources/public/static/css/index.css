@@ -1,0 +1,51 @@
+.column {
+    height: 100%;
+    border-right: #31b0d5 2px solid;
+}
+
+.column:last-child {
+    border-right: none;
+}
+
+.select-area {
+    height: 100px;
+}
+
+.equipment-area {
+    max-height: 800px;
+}
+
+.equipment {
+    border: 1px black solid;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 80px;
+    margin: 1px;
+}
+
+.equipment-desc {
+    display: none;
+    line-height: initial;
+    position: absolute;
+    left: 80px;
+    top: -1px;
+    width: 200px;
+    border: 1px #46b8da solid;
+    background-color: #5bc0de;
+    color: #fff;
+    border-radius: 10px;
+    min-height: 100px;
+    text-align: center;
+    vertical-align: top;
+    z-index: 1;
+}
+
+.equipment:hover .equipment-desc {
+    display: block;
+
+}

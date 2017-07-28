@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="zh"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>TODO</title>
+
+  <link th:href="@{/static/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+  <link th:href="@{/static/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+  <link th:href="@{/static/fontawesome/css/font-awesome.min.css}" rel="stylesheet"/>
+  <link th:href="@{/static/css/index.css}" rel="stylesheet"/>
+
+  <script th:src="@{/static/jquery-3.2.1.min.js}"></script>
+  <script th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/static/underscore-min.js}"></script>
+  <script th:src="@{/static/backbone-min.js}"></script>
+
+</head>
+
+<body>
+<div class="container-fluid" style="position: absolute; height: 100%; width: 100%;">
+
+  <div class="row" style="height: 100%;">
+
+    <div class="col-lg-4 column">
+
+      <div class="select-area">
+        sdfsf
+      </div>
+      <div class="equipment-area">
+
+
+        <div class="equipment-area-search">
+
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="email" class="form-control" id="exampleInputEmail3" placeholder="输入名称搜索..."/>
+            </div>
+          </form>
+
+        </div>
+
+        <div class="equipment-area-types">
+
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-all" value="ALL"/>全部
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-attack" value="ATTACK"/>攻击
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-defense" value="DEFENSE"/>防御
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-mana" value="MANA"/>法术
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-move" value="MOVE"/>移动
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-ASSIST" value="ASSIST"/>辅助
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="e-type" id="e-type-hunter" value="HUNTER"/>防御
+          </label>
+        </div>
+
+        <div class="equipment-area-result">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-4 column">
+
+      <div class="final-equipment-plans-area">
+      </div>
+
+    </div>
+
+    <div class="col-lg-4 column">
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<script>
+  $(function() {
+
+//    $.get("/equipment/all", function(dataList) {
+//      var allEquipmentList = dataList;
+//
+//
+//    });
+
+    $.get("/static/templates/equipment.html", function (template) {
+
+      var templateFunc = _.template(template);
+      $.get("/equipment/all", function(dataList) {
+        _.each(dataList, function (d) {
+          var html = templateFunc(d);
+          $(".equipment-area-result").append(html);
+        })
+      });
+
+    });
+
+  });
+
+
+</script>
+
+</body>
+
+
+
+</html>

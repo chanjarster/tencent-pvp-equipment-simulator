@@ -9,6 +9,7 @@ import me.chanjar.pvp.equipment.model.PurchasePlanPackage;
 import me.chanjar.pvp.equipment.repo.EquipmentRepository;
 import me.chanjar.pvp.solver.EquipmentSuiteSolver;
 import me.chanjar.pvp.solver.FinalEquipmentPlan;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
 import java.text.NumberFormat;
+import java.util.Arrays;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
@@ -49,10 +52,12 @@ public class EquipmentRestController {
    * @see EquipmentSuiteSolver#calculateFeasibleFinalEquipmentPlans(int, List)
    */
   @RequestMapping(method = GET, path = "/feasible-final-equipment-plans", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-  public List<FinalEquipmentPlan> calculateFeasibleFinalEquipmentPlans(
-      @RequestParam("equipmentIds[]") List<String> equipmentIds) {
+  public List<String> calculateFeasibleFinalEquipmentPlans(
+      @RequestParam("equipmentIds") String equipmentIds) {
+    List<FinalEquipmentPlan> finalEquipmentPlans = equipmentSuiteSolver
+        .calculateFeasibleFinalEquipmentPlans(BAG_CAPACITY, Arrays.asList(equipmentIds.split(",")));
 
-    return equipmentSuiteSolver.calculateFeasibleFinalEquipmentPlans(BAG_CAPACITY, equipmentIds);
+    return finalEquipmentPlans.stream().map(p -> StringUtils.join(p.getEquipmentIds(), ',')).collect(toList());
 
   }
 
@@ -60,9 +65,11 @@ public class EquipmentRestController {
    * @see EquipmentSuiteSolver#calculatePurchasePlanAmount(FinalEquipmentPlan)
    */
   @RequestMapping(method = GET, path = "/purchase-plan-amount")
-  public String calculatePurchasePlanAmount(@RequestParam("equipmentIds[]") List<String> equipmentIds) {
+  public String calculatePurchasePlanAmount(@RequestParam("equipmentIds") String equipmentIds) {
 
-    BigInteger result = equipmentSuiteSolver.calculatePurchasePlanAmount(new FinalEquipmentPlan(equipmentIds));
+    BigInteger result = equipmentSuiteSolver.calculatePurchasePlanAmount(
+        new FinalEquipmentPlan(Arrays.asList(equipmentIds.split(",")))
+    );
     return NumberFormat.getIntegerInstance().format(result);
 
   }
@@ -71,17 +78,21 @@ public class EquipmentRestController {
    * @see EquipmentSuiteSolver#calculatePurchasePlanPackage(int, FinalEquipmentPlan, int)
    */
   @RequestMapping(method = GET, path = "/purchase-plan-package", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
-  public PurchasePlanPackage calculatePurchasePlanPackage(
-      @RequestParam("equipmentIds[]") List<String> equipmentIds,
+  public List<String> calculatePurchasePlanPackage(
+      @RequestParam("equipmentIds") String equipmentIds,
       @RequestParam("maxResultAmount") int maxResultAmount) {
 
     if (maxResultAmount > MAX_RESULT_AMOUNT) {
       throw new IllegalArgumentException("maxResultAmount must be <= " + MAX_RESULT_AMOUNT);
     }
     PurchasePlanPackage purchasePlanPackage = equipmentSuiteSolver
-        .calculatePurchasePlanPackage(BAG_CAPACITY, new FinalEquipmentPlan(equipmentIds), maxResultAmount);
+        .calculatePurchasePlanPackage(BAG_CAPACITY,
+            new FinalEquipmentPlan(Arrays.asList(equipmentIds.split(","))),
+            maxResultAmount);
 
-    return purchasePlanPackage;
+    return purchasePlanPackage.getPurchasePlans().stream()
+        .map(p -> StringUtils.join(p.getEquipmentIds(), ','))
+        .collect(toList());
   }
 
   /**
@@ -91,10 +102,11 @@ public class EquipmentRestController {
    * @return
    */
   @RequestMapping(method = GET, path = "/final-effect")
-  public BagSnapshot getFinalEffect(@RequestParam("equipmentIds[]") List<String> equipmentIds) {
+  public BagSnapshot getFinalEffect(@RequestParam("equipmentIds") String equipmentIds) {
 
-    Bag bag = new Bag(equipmentIds.size());
-    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
+    List<String> ids = Arrays.asList(equipmentIds.split(","));
+    Bag bag = new Bag(ids.size());
+    List<Equipment> equipmentList = equipmentRepository.getByIds(ids);
     equipmentList.stream().forEach(e -> bag.add(e));
 
     return new BagSnapshot(bag, BagAddResult.SUCCESS);
@@ -106,9 +118,9 @@ public class EquipmentRestController {
    */
   @RequestMapping(method = GET, path = "/progress-effects")
   public List<BagSnapshot> getProgressEffect(
-      @RequestParam("equipmentIds[]") List<String> equipmentIds) {
+      @RequestParam("equipmentIds") String equipmentIds) {
 
-    List<Equipment> equipmentList = equipmentRepository.getByIds(equipmentIds);
+    List<Equipment> equipmentList = equipmentRepository.getByIds(Arrays.asList(equipmentIds.split(",")));
 
     return bagSimulator.simulate(new Bag(BAG_CAPACITY), equipmentList);
   }

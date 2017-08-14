@@ -40,6 +40,9 @@ public class EquipmentRepositoryImpl implements EquipmentRepository {
 
   @Override
   public Equipment getById(String id) {
+    if (!equipmentMap.containsKey(id)) {
+      throw new IllegalArgumentException(id + " does not exists");
+    }
     return equipmentMap.get(id);
   }
 
